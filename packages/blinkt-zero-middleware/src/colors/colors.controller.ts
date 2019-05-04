@@ -2,11 +2,17 @@ import { Controller, Get, Param } from "@nestjs/common";
 import { ApiOperation, ApiUseTags } from "@nestjs/swagger";
 import { Observable, of } from "rxjs";
 import tinycolor from "tinycolor2";
+import { BlinktService } from "../blinkt/blinkt.service";
 
 @Controller("colors")
 @ApiUseTags("colors")
 export class ColorsController {
-  private colors = Array.from(Array(8), () => tinycolor.random().toString());
+  /**
+   *
+   * @param _blinkt
+   */
+  // tslint:disable-next-line: variable-name
+  constructor(private readonly _blinkt: BlinktService) {}
 
   /**
    *
@@ -16,7 +22,7 @@ export class ColorsController {
     title: "Liefert die Liste der Farben",
   })
   readColors(): Observable<string[]> {
-    return of(this.colors);
+    return this._blinkt.getColors();
   }
 
   /**
@@ -27,6 +33,6 @@ export class ColorsController {
     title: "Liefert die Farbe für den Index",
   })
   readColor(@Param("index") index: number): Observable<string> {
-    return of(this.colors[index]);
+    return this._blinkt.getColor(index);
   }
 }
