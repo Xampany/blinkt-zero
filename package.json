@@ -6,7 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "start": "ts-node index.ts"
+    "start": "oao run-script start"
   },
   "workspaces": {
     "packages": [
