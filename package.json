@@ -4,6 +4,9 @@
   "description": "An IoT project for the Raspberry Pi Zero and Blinkt!",
   "author": "Gerd Jungbluth <gerd.jungbluth@engawa.de>",
   "license": "UNLICENSED",
+  "scripts": {
+    "start": "node index.js"
+  },
   "devDependencies": {
     "oao": "^1.6.0"
   }
