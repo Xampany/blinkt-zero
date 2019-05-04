@@ -6,7 +6,7 @@ services:
     environment:
       - NODE_ENV=production
     volumes:
-      - ./:/home/node/app
+      - /home/node/app
     ports:
       - "8081"
     command: "yarn start"
