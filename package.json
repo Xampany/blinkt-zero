@@ -1,0 +1,10 @@
+{
+  "name": "blinkt-zero",
+  "version": "0.0.1",
+  "description": "An IoT project for the Raspberry Pi Zero and Blinkt!",
+  "author": "Gerd Jungbluth <gerd.jungbluth@engawa.de>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "oao": "^1.6.0"
+  }
+}
