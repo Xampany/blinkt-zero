@@ -1,6 +1,10 @@
 FROM balenalib/rpi-alpine-node:latest
 
+RUN [ "cross-build-start" ]
+
 RUN apk add yarn
+
+RUN [ "cross-build-end" ]
 
 EXPOSE 8081
 
