@@ -1,6 +1,6 @@
-import { Server } from "http";
+import { Server, ServerResponse, IncomingMessage } from "http";
 
-const server = new Server((req, res) => {
+const server = new Server((req: IncomingMessage, res: ServerResponse) => {
   res.end(new Date().toISOString());
 });
 
