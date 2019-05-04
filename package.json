@@ -20,6 +20,8 @@
   "devDependencies": {
     "@nestjs/cli": "^6.3.0",
     "@types/node": "^12.0.0",
-    "oao": "^1.6.0"
+    "oao": "^1.6.0",
+    "prettier": "^1.17.0",
+    "tslint": "^5.16.0"
   }
 }
