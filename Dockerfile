@@ -6,7 +6,7 @@ RUN apk add yarn
 
 RUN [ "cross-build-end" ]
 
-EXPOSE 8081
+EXPOSE 80
 
 # Defines our working directory in container
 WORKDIR /usr/src/app

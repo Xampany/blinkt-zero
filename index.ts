@@ -1,7 +1,7 @@
-const { Server } = require("http");
+import { Server } from "http";
 
 const server = new Server((req, res) => {
   res.end("Hello");
 });
 
-server.listen(8081);
+server.listen(80);
