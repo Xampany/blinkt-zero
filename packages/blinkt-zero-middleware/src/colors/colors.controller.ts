@@ -1,8 +1,8 @@
-import { Controller, Get, Param } from "@nestjs/common";
+import { Body, Controller, Get, Param, Patch } from "@nestjs/common";
 import { ApiOperation, ApiUseTags } from "@nestjs/swagger";
-import { Observable, of } from "rxjs";
-import tinycolor from "tinycolor2";
+import { Observable } from "rxjs";
 import { BlinktService } from "../blinkt/blinkt.service";
+import { UpdateColorDto } from "./dto/update-color-dto";
 
 @Controller("colors")
 @ApiUseTags("colors")
@@ -23,6 +23,18 @@ export class ColorsController {
   })
   readColors(): Observable<string[]> {
     return this._blinkt.getColors();
+  }
+
+  /**
+   *
+   * @param color
+   */
+  @Patch()
+  @ApiOperation({
+    title: "Aktualisiert alle Farben",
+  })
+  updateColors(@Body() payload: UpdateColorDto) {
+    return this._blinkt.setColors(payload.color);
   }
 
   /**

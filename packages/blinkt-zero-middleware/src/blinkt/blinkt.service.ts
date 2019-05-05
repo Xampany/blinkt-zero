@@ -16,6 +16,15 @@ export class BlinktService {
 
   /**
    *
+   * @param color
+   */
+  setColors(color: string): Observable<string[]> {
+    this.colors = this.colors.map(() => tinycolor(color).toString());
+    return this.getColors();
+  }
+
+  /**
+   *
    * @param index
    */
   getColor(index: number): Observable<string> {
