@@ -26,6 +26,7 @@
     "@nestjs/swagger": "^3.0.2",
     "class-validator": "^0.9.1",
     "helmet": "^3.17.0",
+    "onoff": "^4.1.1",
     "reflect-metadata": "^0.1.12",
     "rimraf": "^2.6.2",
     "rxjs": "^6.3.3",
