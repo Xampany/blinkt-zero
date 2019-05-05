@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Led } from "../../blinkt-common/shared/led";
 
 @Component({
   selector: "blinkt-color-form",
@@ -6,10 +7,16 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./color-form.component.scss"]
 })
 export class ColorFormComponent implements OnInit {
+  color = "";
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  /**
+   *
+   */
+  updateColor(value: Pick<Led, "color">) {
+    console.log(value);
   }
-
 }
