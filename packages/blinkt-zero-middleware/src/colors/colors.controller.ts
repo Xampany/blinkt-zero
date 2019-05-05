@@ -27,7 +27,18 @@ export class ColorsController {
 
   /**
    *
-   * @param color
+   */
+  @Get(":index")
+  @ApiOperation({
+    title: "Liefert die Farbe für den Index",
+  })
+  readColor(@Param("index") index: number): Observable<string> {
+    return this._blinkt.getColor(index);
+  }
+
+  /**
+   *
+   * @param payload
    */
   @Patch()
   @ApiOperation({
@@ -39,12 +50,13 @@ export class ColorsController {
 
   /**
    *
+   * @param payload
    */
-  @Get(":index")
+  @Patch(":index")
   @ApiOperation({
-    title: "Liefert die Farbe für den Index",
+    title: "Aktualisiert die Farbe für den Index",
   })
-  readColor(@Param("index") index: number): Observable<string> {
-    return this._blinkt.getColor(index);
+  updateColor(@Param("index") index: number, @Body() payload: UpdateColorDto) {
+    return this._blinkt.setColor(index, payload.color);
   }
 }
