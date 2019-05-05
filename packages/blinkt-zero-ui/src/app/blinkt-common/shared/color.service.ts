@@ -6,6 +6,9 @@ import { Led } from "./led";
   providedIn: "root"
 })
 export class ColorService {
+  // https://tinyurl.com/blinktzero-01
+  // https://tinyurl.com/blinktzero-02
+
   constructor() {}
 
   /**
