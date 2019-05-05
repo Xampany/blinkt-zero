@@ -1,0 +1,7 @@
+$blinkt-box-size: 100px;
+
+.box {
+  cursor: pointer;
+  height: $blinkt-box-size;
+  width: $blinkt-box-size;
+}

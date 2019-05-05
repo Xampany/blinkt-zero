@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Led } from "./blinkt-common/shared/led";
 
 @Component({
   selector: "blinkt-root",
@@ -7,4 +8,9 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   title = "BlinktZero";
+
+  led: Led = {
+    index: 0,
+    color: "red"
+  };
 }
