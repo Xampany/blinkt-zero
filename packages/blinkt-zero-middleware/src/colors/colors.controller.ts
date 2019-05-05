@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch } from "@nestjs/common";
+import { Body, Controller, Get, Param, Put } from "@nestjs/common";
 import { ApiOperation, ApiUseTags } from "@nestjs/swagger";
 import { Observable } from "rxjs";
 import { BlinktService } from "../blinkt/blinkt.service";
@@ -27,6 +27,7 @@ export class ColorsController {
 
   /**
    *
+   * @param index
    */
   @Get(":index")
   @ApiOperation({
@@ -40,7 +41,7 @@ export class ColorsController {
    *
    * @param payload
    */
-  @Patch()
+  @Put()
   @ApiOperation({
     title: "Aktualisiert alle Farben",
   })
@@ -52,7 +53,7 @@ export class ColorsController {
    *
    * @param payload
    */
-  @Patch(":index")
+  @Put(":index")
   @ApiOperation({
     title: "Aktualisiert die Farbe für den Index",
   })
