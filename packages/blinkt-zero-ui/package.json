@@ -11,7 +11,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "docs": "compodoc -p tsconfig.json -n BlinktZero -s"
   },
   "dependencies": {
     "@angular/animations": "~7.2.0",
@@ -39,6 +40,7 @@
     "@types/node": "~8.9.4",
     "@types/tinycolor2": "^1.4.1",
     "codelyzer": "~4.5.0",
+    "compodoc": "^0.0.41",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.0.0",
