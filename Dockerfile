@@ -1,6 +1,6 @@
 FROM balenalib/rpi-alpine-node:latest
 
-RUN apk add yarn
+RUN apk add yarn python
 
 EXPOSE 80
 
