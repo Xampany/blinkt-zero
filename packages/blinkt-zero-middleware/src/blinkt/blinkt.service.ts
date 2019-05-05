@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
-import { Gpio, BinaryValue } from "onoff";
-import { Observable, of } from "rxjs";
-import { map } from "rxjs/operators";
+import { BinaryValue, Gpio } from "onoff";
+import { interval, Observable, of, Subscription } from "rxjs";
+import { map, take } from "rxjs/operators";
 import tinycolor from "tinycolor2";
 
 @Injectable()
@@ -17,6 +17,8 @@ export class BlinktService {
 
   private readonly dat = new Gpio(BlinktService.DAT, "out");
   private readonly clk = new Gpio(BlinktService.CLK, "out");
+
+  private flashing!: Subscription;
 
   /**
    *
@@ -59,6 +61,43 @@ export class BlinktService {
     this.colors[index] = tinycolor(color).toRgbString();
     this.writePixels(this.colors);
     return this.getColor(index);
+  }
+
+  /**
+   *
+   * @param frequency
+   * @param duration
+   */
+  startFlash(frequency = 1, duration = 1000) {
+    const factor = 2;
+    const period = 1e3 / frequency / factor;
+    const count = duration / period;
+    const isEven = (x: number): boolean => x % 2 === 0; // true = even / false = uneven
+
+    this.flashing = interval(period)
+      .pipe(
+        take(count),
+        map(isEven),
+      )
+      .subscribe({
+        next: phase =>
+          phase
+            ? this.writePixels(BlinktService.BLACK)
+            : this.writePixels(this.colors),
+      });
+    return true;
+  }
+
+  /**
+   *
+   */
+  stopFlash() {
+    if (this.flashing) {
+      this.flashing.unsubscribe();
+      return true;
+    } else {
+      return false;
+    }
   }
 
   /**
