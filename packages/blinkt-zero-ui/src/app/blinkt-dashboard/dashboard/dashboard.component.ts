@@ -7,11 +7,6 @@ import { Led } from "../../blinkt-common/shared/led";
   styleUrls: ["./dashboard.component.scss"]
 })
 export class DashboardComponent implements OnInit {
-  led: Led = {
-    index: 0,
-    color: "red"
-  };
-
   constructor() {}
 
   ngOnInit() {}
