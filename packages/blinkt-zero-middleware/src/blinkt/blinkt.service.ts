@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { BinaryValue, Gpio } from "onoff";
-import { interval, Observable, of, Subscription } from "rxjs";
-import { map, take } from "rxjs/operators";
+import { interval, Observable, of, Subject } from "rxjs";
+import { map, take, takeUntil } from "rxjs/operators";
 import tinycolor from "tinycolor2";
 
 @Injectable()
@@ -18,7 +18,7 @@ export class BlinktService {
   private readonly dat = new Gpio(BlinktService.DAT, "out");
   private readonly clk = new Gpio(BlinktService.CLK, "out");
 
-  private flashing!: Subscription;
+  private readonly flash$ = new Subject<void>();
 
   /**
    *
@@ -74,10 +74,11 @@ export class BlinktService {
     const count = duration / period;
     const isEven = (x: number): boolean => x % 2 === 0; // true = even / false = uneven
 
-    this.flashing = interval(period)
+    interval(period)
       .pipe(
         take(count),
         map(isEven),
+        takeUntil(this.flash$),
       )
       .subscribe({
         next: phase =>
@@ -92,12 +93,8 @@ export class BlinktService {
    *
    */
   stopFlash() {
-    if (this.flashing) {
-      this.flashing.unsubscribe();
-      return true;
-    } else {
-      return false;
-    }
+    this.flash$.next();
+    return true;
   }
 
   /**
