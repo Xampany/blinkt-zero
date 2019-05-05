@@ -14,6 +14,13 @@ export class LedListComponent implements OnInit {
   constructor(private readonly _color: ColorService) {}
 
   ngOnInit() {
+    this.loadLeds();
+  }
+
+  /**
+   *
+   */
+  loadLeds() {
     this._color.readColors().then(leds => (this.leds = leds));
   }
 }

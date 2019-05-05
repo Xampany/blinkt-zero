@@ -4,7 +4,8 @@
       <blinkt-color-form></blinkt-color-form>
     </div>
     <div class="column">
-      <blinkt-led-list></blinkt-led-list>
+      <blinkt-led-list #list></blinkt-led-list>
+      <blinkt-action-bar (refresh)="list.loadLeds()"></blinkt-action-bar>
     </div>
   </div>
 </div>
