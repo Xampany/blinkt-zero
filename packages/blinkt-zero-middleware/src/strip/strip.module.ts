@@ -1,4 +1,9 @@
 import { Module } from "@nestjs/common";
+import { BlinktModule } from "../blinkt/blinkt.module";
+import { StripController } from "./strip.controller";
 
-@Module({})
+@Module({
+  controllers: [StripController],
+  imports: [BlinktModule],
+})
 export class StripModule {}

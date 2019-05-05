@@ -19,6 +19,7 @@ export class BlinktService {
   private readonly clk = new Gpio(BlinktService.CLK, "out");
 
   private readonly flash$ = new Subject<void>();
+  private readonly strip$ = new Subject<void>();
 
   /**
    *
@@ -85,6 +86,7 @@ export class BlinktService {
           phase
             ? this.writePixels(BlinktService.BLACK)
             : this.writePixels(this.colors),
+        complete: () => this.sendUpdate(),
       });
     return true;
   }
@@ -92,9 +94,55 @@ export class BlinktService {
   /**
    *
    */
-  stopFlash() {
+  stopFlash(): boolean {
     this.flash$.next();
     return true;
+  }
+
+  /**
+   * Starts a light strip for all the pixels with the current color setup.
+   * @param {Number} duration The duration of one cycle of the color strip [ms]
+   * @param {Number} repeat The number of times to repeat the strip
+   */
+  startStrip(duration: number = 1e3, repeat: number = 1) {
+    const period: number = Math.round(duration / BlinktService.PIXELS);
+    const count: number = repeat * BlinktService.PIXELS;
+
+    interval(period)
+      .pipe(
+        take(count),
+        map(v => v % BlinktService.PIXELS),
+        takeUntil(this.strip$),
+      )
+      .subscribe({
+        next: (show: number) => {
+          const colors: string[] = this.colors.map(
+            (color: string, index: number) => {
+              return index === show ? color : "black";
+            },
+          );
+          this.writePixels(colors);
+        },
+        complete: () => this.sendUpdate(),
+      });
+  }
+
+  /**
+   * Stops the light strip for the current pixels
+   * @return {Boolean} true, if the strip was stopped successfully, false otherwise
+   */
+  stopStrip(): boolean {
+    this.strip$.next();
+    return true;
+  }
+
+  /**
+   * Sends the current pixel settings to the Blinkt! device. Once you
+   * have set each pixel RGB and brightness, you MUST call this for the
+   * pixels to change on the Blinkt! device.
+   */
+  private sendUpdate() {
+    this.writePixels(this.colors);
   }
 
   /**
