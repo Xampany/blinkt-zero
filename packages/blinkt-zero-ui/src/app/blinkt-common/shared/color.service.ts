@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import * as tinycolor from "tinycolor2";
 import { Led } from "./led";
 
 @Injectable({
@@ -11,19 +12,13 @@ export class ColorService {
    *
    */
   readColors(): Promise<Led[]> {
-    return Promise.resolve([
-      {
-        index: 0,
-        color: "red"
-      },
-      {
-        index: 1,
-        color: "green"
-      },
-      {
-        index: 2,
-        color: "blue"
-      }
-    ]);
+    return Promise.resolve(
+      Array.from(Array(8), (value, index) => {
+        return {
+          color: tinycolor.random().toString(),
+          index
+        };
+      })
+    );
   }
 }

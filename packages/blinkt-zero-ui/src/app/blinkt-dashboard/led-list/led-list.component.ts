@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Led } from "../../blinkt-common/shared/led";
 import { ColorService } from "src/app/blinkt-common/shared/color.service";
+import { Led } from "../../blinkt-common/shared/led";
 
 @Component({
   selector: "blinkt-led-list",
