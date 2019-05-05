@@ -1,11 +1,16 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "packages\\blinkt-zero-middleware"
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "packages\\blinkt-zero-middleware"
+    },
+    {
+      "path": "packages\\blinkt-zero-ui"
+    }
+  ],
+  "settings": {
+    "vsicons.presets.angular": true
+  }
 }

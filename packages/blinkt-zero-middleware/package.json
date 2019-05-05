@@ -2,8 +2,9 @@
   "name": "blinkt-zero-middleware",
   "version": "0.0.1",
   "description": "",
-  "author": "",
-  "license": "MIT",
+  "author": "Engawa <infos@engawa.de>",
+  "license": "UNLICENSED",
+  "private": true,
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "format": "prettier --write \"src/**/*.ts\"",
