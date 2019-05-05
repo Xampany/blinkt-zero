@@ -1,6 +1,6 @@
 FROM balenalib/rpi-alpine-node:latest
 
-RUN apk add yarn python
+RUN apk add yarn python make gcc
 
 EXPOSE 80
 
