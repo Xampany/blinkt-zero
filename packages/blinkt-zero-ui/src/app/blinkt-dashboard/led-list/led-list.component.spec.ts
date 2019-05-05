@@ -1,8 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { LedListComponent } from './led-list.component';
+import { LedListComponent } from "./led-list.component";
 
-describe('LedListComponent', () => {
+describe("LedListComponent", () => {
   let component: LedListComponent;
   let fixture: ComponentFixture<LedListComponent>;
 
@@ -19,7 +19,7 @@ describe('LedListComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
