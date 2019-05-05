@@ -68,7 +68,7 @@ export class BlinktService {
    * @param frequency
    * @param duration
    */
-  startFlash(frequency = 1, duration = 1000) {
+  startFlash(frequency = 1, duration = 1e4) {
     const factor = 2;
     const period = 1e3 / frequency / factor;
     const count = duration / period;

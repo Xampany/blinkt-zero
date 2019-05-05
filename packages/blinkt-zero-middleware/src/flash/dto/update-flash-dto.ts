@@ -10,7 +10,7 @@ export class UpdateFlashDto {
   readonly frequency!: number;
 
   @ApiModelProperty({
-    example: "1000",
+    example: "10000",
     description: "Die Dauer [ms]",
   })
   @IsNumber()
