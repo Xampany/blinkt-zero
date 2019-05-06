@@ -1,4 +1,11 @@
 import { Component, OnInit } from "@angular/core";
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators
+} from "@angular/forms";
+import { debounceTime, tap } from "rxjs/operators";
 import { Led } from "../../blinkt-common/shared/led";
 
 @Component({
@@ -7,11 +14,34 @@ import { Led } from "../../blinkt-common/shared/led";
   styleUrls: ["./color-form.component.scss"]
 })
 export class ColorFormComponent implements OnInit {
-  color = "";
+  color = "red";
 
-  constructor() {}
+  form: FormGroup;
 
-  ngOnInit() {}
+  constructor(private readonly fb: FormBuilder) {}
+
+  ngOnInit() {
+    const input = this.fb.control(
+      {
+        value: this.color,
+        disabled: false
+      },
+      [Validators.required, Validators.minLength(3)]
+    );
+
+    this.form = this.fb.group({
+      color: input
+    });
+
+    input.valueChanges
+      .pipe(
+        debounceTime(1000),
+        tap(value => console.log(value))
+      )
+      .subscribe({
+        next: () => this.updateColor(this.form.value)
+      });
+  }
 
   /**
    *

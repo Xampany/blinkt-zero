@@ -1,3 +1,14 @@
+<!-- Reactive -->
+<form [formGroup]="form">
+  <div class="field">
+    <label for="" class="label">Farbe</label>
+    <div class="control">
+      <input class="input" formControlName="color" type="text" />
+    </div>
+  </div>
+</form>
+
+<!-- Template driven -->
 <form #myForm="ngForm" (ngSubmit)="updateColor(myForm.value)">
   <div class="field">
     <label class="label">Farbe</label>
@@ -19,8 +30,8 @@
         <i class="fas fa-exclamation-triangle"></i>
       </span>
     </div>
-    <p class="help is-danger" *ngIf="myColor.invalid">
-      Der Farbwert ist ungültig
+    <p class="help is-danger" *ngIf="myColor.hasError('required')">
+      Bitte geben Sie einen Wert ein!
     </p>
   </div>
 
@@ -34,4 +45,5 @@
       <button type="reset" class="button is-text">Zurück setzen</button>
     </div>
   </div>
+  <pre><code>{{ myForm.valid }}</code></pre>
 </form>
