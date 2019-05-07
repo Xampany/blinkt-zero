@@ -2,7 +2,6 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { map, tap } from "rxjs/operators";
-import * as tinycolor from "tinycolor2";
 import { Led } from "./led";
 
 @Injectable({
@@ -16,6 +15,14 @@ export class ColorService {
     "https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api/colors";
 
   constructor(private readonly client: HttpClient) {}
+
+  getColorObservable(index: number): Observable<any> {
+    const o = this.client.get(`${this.URL_1}/${index}`, {
+      responseType: "text"
+    });
+
+    return o.pipe(map(color => ({ index, color })));
+  }
 
   updateColorsObservable(body: Pick<Led, "color">): Observable<Led[]> {
     const o = this.client.put<string[]>(this.URL_1, body);

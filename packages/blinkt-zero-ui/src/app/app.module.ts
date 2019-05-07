@@ -5,6 +5,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { BlinktCommonModule } from "./blinkt-common/blinkt-common.module";
 import { BlinktDashboardModule } from "./blinkt-dashboard/blinkt-dashboard.module";
+import { BlinktDetailModule } from "./blinkt-detail/blinkt-detail.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,7 +13,8 @@ import { BlinktDashboardModule } from "./blinkt-dashboard/blinkt-dashboard.modul
     BrowserModule,
     AppRoutingModule,
     BlinktDashboardModule,
-    BlinktCommonModule
+    BlinktCommonModule,
+    BlinktDetailModule
   ],
   providers: [],
   bootstrap: [AppComponent]

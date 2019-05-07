@@ -1,0 +1,7 @@
+<blinkt-led [led]="led" *ngIf="led; else loader"></blinkt-led>
+
+<ng-template #loader>
+  <p>
+    Bin am Laden ...
+  </p>
+</ng-template>
