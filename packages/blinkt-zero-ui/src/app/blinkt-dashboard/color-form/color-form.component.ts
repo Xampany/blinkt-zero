@@ -6,7 +6,14 @@ import {
   FormGroup,
   ValidatorFn
 } from "@angular/forms";
-import { debounceTime, distinctUntilChanged, filter } from "rxjs/operators";
+import {
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  tap,
+  mapTo,
+  withLatestFrom
+} from "rxjs/operators";
 import * as tinycolor from "tinycolor2";
 import { Led } from "../../blinkt-common/shared/led";
 
@@ -53,14 +60,23 @@ export class ColorFormComponent implements OnInit {
       color: input
     });
 
-    input.valueChanges
+    const input$ = input.valueChanges.pipe(
+      debounceTime(300),
+      distinctUntilChanged()
+    );
+
+    input.statusChanges
       .pipe(
-        debounceTime(300),
-        filter(() => this.form.valid),
-        distinctUntilChanged()
+        tap(res => console.log(res)),
+        filter(status => status === "VALID"),
+        mapTo(true),
+        withLatestFrom(input$)
       )
       .subscribe({
-        next: () => this.updateColor(this.form.value)
+        next: res => {
+          const [valid, color] = res;
+          this.updateColor({ color });
+        }
       });
   }
 
