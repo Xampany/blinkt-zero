@@ -7,6 +7,9 @@
     </div>
     <div class="column">
       <blinkt-led-list #list></blinkt-led-list>
+      <p>
+        <a [routerLink]="12">Buggy</a>
+      </p>
       <blinkt-action-bar (refresh)="list.loadLeds()"></blinkt-action-bar>
     </div>
   </div>

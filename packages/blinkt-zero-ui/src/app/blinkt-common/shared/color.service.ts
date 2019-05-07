@@ -16,6 +16,12 @@ export class ColorService {
 
   constructor(private readonly client: HttpClient) {}
 
+  isValidIndex(index: any): Promise<boolean> {
+    return Promise.resolve(
+      Number.isNaN(index) ? false : index < 0 || index > 7 ? false : true
+    );
+  }
+
   getColorObservable(index: number): Observable<any> {
     const o = this.client.get(`${this.URL_1}/${index}`, {
       responseType: "text"
