@@ -1,12 +1,30 @@
 import { Component, OnInit } from "@angular/core";
 import {
+  AbstractControl,
+  AsyncValidatorFn,
   FormBuilder,
-  FormControl,
   FormGroup,
-  Validators
+  ValidatorFn
 } from "@angular/forms";
-import { debounceTime, tap } from "rxjs/operators";
+import { debounceTime, distinctUntilChanged, filter } from "rxjs/operators";
+import * as tinycolor from "tinycolor2";
 import { Led } from "../../blinkt-common/shared/led";
+
+function colorValidator(): AsyncValidatorFn {
+  return (control: AbstractControl) => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(
+          tinycolor(control.value).isValid()
+            ? null
+            : {
+                color: true
+              }
+        );
+      }, 3000);
+    });
+  };
+}
 
 @Component({
   selector: "blinkt-color-form",
@@ -26,7 +44,9 @@ export class ColorFormComponent implements OnInit {
         value: this.color,
         disabled: false
       },
-      [Validators.required, Validators.minLength(3)]
+      {
+        asyncValidators: colorValidator()
+      }
     );
 
     this.form = this.fb.group({
@@ -35,8 +55,9 @@ export class ColorFormComponent implements OnInit {
 
     input.valueChanges
       .pipe(
-        debounceTime(1000),
-        tap(value => console.log(value))
+        debounceTime(300),
+        filter(() => this.form.valid),
+        distinctUntilChanged()
       )
       .subscribe({
         next: () => this.updateColor(this.form.value)

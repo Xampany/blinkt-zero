@@ -1,15 +1,31 @@
 <!-- Reactive -->
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="updateColor(form.value)">
   <div class="field">
     <label for="" class="label">Farbe</label>
     <div class="control">
-      <input class="input" formControlName="color" type="text" />
+      <input
+        class="input"
+        formControlName="color"
+        type="text"
+        [ngClass]="{ 'is-danger': form.get('color').invalid }"
+      />
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button type="submit" class="button is-link" [disabled]="form.invalid">
+        Absenden
+      </button>
+    </div>
+    <div class="control">
+      <button type="reset" class="button is-text">Zurück setzen</button>
     </div>
   </div>
 </form>
 
 <!-- Template driven -->
-<form #myForm="ngForm" (ngSubmit)="updateColor(myForm.value)">
+<form *ngIf="false" #myForm="ngForm" (ngSubmit)="updateColor(myForm.value)">
   <div class="field">
     <label class="label">Farbe</label>
     <div class="control has-icons-left has-icons-right">
