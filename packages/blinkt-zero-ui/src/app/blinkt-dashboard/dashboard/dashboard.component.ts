@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { Led } from "../../blinkt-common/shared/led";
 
 @Component({
   selector: "blinkt-dashboard",

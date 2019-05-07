@@ -12,18 +12,33 @@ export class ColorService {
   // https://tinyurl.com/blinktzero-01
   // https://tinyurl.com/blinktzero-02
 
+  private readonly URL_1 =
+    "https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api/colors";
+
   constructor(private readonly client: HttpClient) {}
+
+  updateColorsObservable(body: Pick<Led, "color">): Observable<Led[]> {
+    const o = this.client.put<string[]>(this.URL_1, body);
+
+    return o.pipe(
+      map(colors => {
+        return colors.map((color, index) => {
+          return {
+            color,
+            index
+          };
+        });
+      })
+    );
+  }
 
   /**
    *
    */
   readColorsObservable(): Observable<Led[]> {
-    const o = this.client.get<string[]>(
-      "https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api/colors"
-    );
+    const o = this.client.get<string[]>(this.URL_1);
 
     return o.pipe(
-      tap(res => console.log(res)),
       map(colors => {
         return colors.map((color, index) => {
           return {

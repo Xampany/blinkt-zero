@@ -1,17 +1,16 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import {
   AbstractControl,
   AsyncValidatorFn,
   FormBuilder,
-  FormGroup,
-  ValidatorFn
+  FormGroup
 } from "@angular/forms";
 import {
   debounceTime,
   distinctUntilChanged,
   filter,
-  tap,
   mapTo,
+  tap,
   withLatestFrom
 } from "rxjs/operators";
 import * as tinycolor from "tinycolor2";
@@ -28,7 +27,7 @@ function colorValidator(): AsyncValidatorFn {
                 color: true
               }
         );
-      }, 3000);
+      }, 400);
     });
   };
 }
@@ -39,6 +38,9 @@ function colorValidator(): AsyncValidatorFn {
   styleUrls: ["./color-form.component.scss"]
 })
 export class ColorFormComponent implements OnInit {
+  @Output()
+  colorChange = new EventEmitter<Pick<Led, "color">>();
+
   color = "red";
 
   form: FormGroup;
@@ -84,6 +86,6 @@ export class ColorFormComponent implements OnInit {
    *
    */
   updateColor(value: Pick<Led, "color">) {
-    console.log(value);
+    this.colorChange.emit(value);
   }
 }
