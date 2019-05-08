@@ -7,3 +7,6 @@
   [ngStyle]="{ 'background-color': led.color }"
   (click)="handleClick($event)"
 ></div>
+<p>
+  {{ led.color | blinktColor: "name" }}
+</p>
