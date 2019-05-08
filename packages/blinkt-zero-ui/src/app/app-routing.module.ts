@@ -1,42 +1,24 @@
 import { NgModule } from "@angular/core";
-import { RouterModule, Routes } from "@angular/router";
+import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
 import { DashboardComponent } from "./blinkt-dashboard/dashboard/dashboard.component";
-import { DetailComponent } from "./blinkt-detail/detail/detail.component";
-import { IndexGuard } from "./blinkt-detail/shared/index.guard";
-import { LedResolverService } from "./blinkt-detail/shared/led-resolver.service";
-import { UnloadGuard } from "./blinkt-detail/shared/unload.guard";
 
 const routes: Routes = [
   {
-    path: "leds",
-    children: [
-      {
-        path: "",
-        component: DashboardComponent
-      },
-      {
-        path: ":index",
-        component: DetailComponent,
-        canActivate: [IndexGuard],
-        canDeactivate: [UnloadGuard],
-        resolve: {
-          led: LedResolverService
-        },
-        data: {
-          solution: 42
-        }
-      }
-    ]
+    path: "",
+    component: DashboardComponent
   },
   {
-    path: "",
-    pathMatch: "full",
-    redirectTo: "leds"
+    path: "leds",
+    loadChildren: "./blinkt-detail/blinkt-detail.module#BlinktDetailModule"
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules
+    })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

@@ -2,6 +2,6 @@
   <div class="column" *ngFor="let led of leds">
     <blinkt-led [led]="led"></blinkt-led>
 
-    <a [routerLink]="led.index">Details</a>
+    <a [routerLink]="['leds', led.index]">Details</a>
   </div>
 </div>
