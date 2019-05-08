@@ -1,15 +1,15 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { async, inject, TestBed } from "@angular/core/testing";
 
-import { IndexGuard } from './index.guard';
+import { IndexGuard } from "./index.guard";
 
-describe('IndexGuard', () => {
+describe("IndexGuard", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [IndexGuard]
     });
   });
 
-  it('should ...', inject([IndexGuard], (guard: IndexGuard) => {
+  it("should ...", inject([IndexGuard], (guard: IndexGuard) => {
     expect(guard).toBeTruthy();
   }));
 });

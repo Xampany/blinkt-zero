@@ -1,15 +1,15 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { async, inject, TestBed } from "@angular/core/testing";
 
-import { UnloadGuard } from './unload.guard';
+import { UnloadGuard } from "./unload.guard";
 
-describe('UnloadGuard', () => {
+describe("UnloadGuard", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [UnloadGuard]
     });
   });
 
-  it('should ...', inject([UnloadGuard], (guard: UnloadGuard) => {
+  it("should ...", inject([UnloadGuard], (guard: UnloadGuard) => {
     expect(guard).toBeTruthy();
   }));
 });
