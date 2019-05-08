@@ -1,12 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { map, tap } from "rxjs/operators";
+import { map } from "rxjs/operators";
+import * as tinycolor from "tinycolor2";
 import { Led } from "./led";
 
-@Injectable({
-  providedIn: "root"
-})
+@Injectable()
 export class ColorService {
   // https://tinyurl.com/blinktzero-01
   // https://tinyurl.com/blinktzero-02
@@ -20,6 +19,19 @@ export class ColorService {
     return Promise.resolve(
       Number.isNaN(index) ? false : index < 0 || index > 7 ? false : true
     );
+  }
+
+  updateColorObservable(
+    index: number,
+    color = tinycolor.random().toString()
+  ): Observable<Led> {
+    const body = { color };
+    const o = this.client.put(`${this.URL_1}/${index}`, body, {
+      responseType: "text"
+    });
+
+    // tslint:disable-next-line: no-shadowed-variable
+    return o.pipe(map(color => ({ index, color })));
   }
 
   getColorObservable(index: number): Observable<any> {

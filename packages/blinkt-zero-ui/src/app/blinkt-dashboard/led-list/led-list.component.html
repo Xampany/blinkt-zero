@@ -1,6 +1,6 @@
 <div class="columns">
   <div class="column" *ngFor="let led of leds">
-    <blinkt-led [led]="led">
+    <blinkt-led [led]="led" (ledChange)="updateLed($event)">
       <a class="button" [routerLink]="['leds', led.index]">Details</a>
     </blinkt-led>
   </div>

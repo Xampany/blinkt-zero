@@ -25,6 +25,12 @@ export class LedListComponent implements OnInit, OnDestroy {
     this.destroy$.next();
   }
 
+  updateLed(index: number) {
+    this._color.updateColorObservable(index).subscribe({
+      next: led => (this.leds[index] = led)
+    });
+  }
+
   updateLeds(value: any) {
     this._color.updateColorsObservable(value).subscribe({
       next: leds => (this.leds = leds)
@@ -36,7 +42,7 @@ export class LedListComponent implements OnInit, OnDestroy {
    */
   loadLeds() {
     // this._color.readColorsPromise().then(leds => (this.leds = leds));
-    const interval$ = interval(1000);
+    const interval$ = interval(500);
 
     const colors$ = this._color.readColorsObservable();
 
