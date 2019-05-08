@@ -17,7 +17,7 @@ export class ColorService {
 
   isValidIndex(index: any): Promise<boolean> {
     return Promise.resolve(
-      Number.isNaN(index) ? false : index < 0 || index > 7 ? false : true
+      Number.isNaN(index) ? false : index < 0 || index > 7
     );
   }
 
@@ -45,16 +45,7 @@ export class ColorService {
   updateColorsObservable(body: Pick<Led, "color">): Observable<Led[]> {
     const o = this.client.put<string[]>(this.URL_1, body);
 
-    return o.pipe(
-      map(colors => {
-        return colors.map((color, index) => {
-          return {
-            color,
-            index
-          };
-        });
-      })
-    );
+    return o.pipe(map(colors => this.convertColors(colors)));
   }
 
   /**
@@ -63,16 +54,7 @@ export class ColorService {
   readColorsObservable(): Observable<Led[]> {
     const o = this.client.get<string[]>(this.URL_1);
 
-    return o.pipe(
-      map(colors => {
-        return colors.map((color, index) => {
-          return {
-            color,
-            index
-          };
-        });
-      })
-    );
+    return o.pipe(map(colors => this.convertColors(colors)));
   }
 
   /**
@@ -83,13 +65,18 @@ export class ColorService {
       "https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api/colors"
     )
       .then(response => response.json())
-      .then(colors => {
-        return colors.map((color, index) => {
-          return {
-            color,
-            index
-          };
-        });
-      });
+      .then(colors => this.convertColors(colors));
+  }
+
+  /**
+   *
+   */
+  private convertColors(colors: string[]): Led[] {
+    return colors.map((color, index) => {
+      return {
+        color,
+        index
+      };
+    });
   }
 }

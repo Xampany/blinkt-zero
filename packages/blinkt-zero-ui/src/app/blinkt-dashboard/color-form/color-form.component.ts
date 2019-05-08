@@ -76,7 +76,7 @@ export class ColorFormComponent implements OnInit {
       )
       .subscribe({
         next: res => {
-          const [valid, color] = res;
+          const color = res[1];
           this.updateColor({ color });
         }
       });
