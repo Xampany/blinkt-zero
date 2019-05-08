@@ -112,13 +112,13 @@
                                     <a href="../components/DetailComponent.html" >DetailComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/LedComponent.html"  class="active" >LedComponent</a>
+                                    <a href="../components/LedComponent.html" >LedComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/LedListComponent.html" >LedListComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/LoaderComponent.html" >LoaderComponent</a>
+                                    <a href="../components/LoaderComponent.html"  class="active" >LoaderComponent</a>
                                 </li>
                         </ul>
                     </li>
@@ -322,13 +322,13 @@
                                            <a href="../components/DetailComponent.html" >DetailComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/LedComponent.html"  class="active" >LedComponent</a>
+                                           <a href="../components/LedComponent.html" >LedComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/LedListComponent.html" >LedListComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/LoaderComponent.html" >LoaderComponent</a>
+                                           <a href="../components/LoaderComponent.html"  class="active" >LoaderComponent</a>
                                        </li>
                                </ul>
                            </li>
@@ -440,7 +440,7 @@
 
 <ol class="breadcrumb">
   <li>Components</li>
-  <li>LedComponent</li>
+  <li>LoaderComponent</li>
 </ol>
 
 
@@ -458,7 +458,7 @@
     <h3>File</h3>
 </p>
 <p class="comment">
-    <code>src/app/blinkt-common/led/led.component.ts</code>
+    <code>src/app/blinkt-common/loader/loader.component.ts</code>
 </p>
 
 
@@ -468,10 +468,6 @@
     <table class="table table-sm table-hover">
         <tbody>
 
-            <tr>
-                <td class="col-md-3">changeDetection</td>
-                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
-            </tr>
 
 
 
@@ -485,19 +481,19 @@
 
             <tr>
                 <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>blinkt-led</code></td>
+                <td class="col-md-9"><code>blinkt-loader</code></td>
             </tr>
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>led.component.scss</code></td>
+                <td class="col-md-9"><code>loader.component.scss</code></td>
             </tr>
 
 
 
             <tr>
                 <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>led.component.html</code></td>
+                <td class="col-md-9"><code>loader.component.html</code></td>
             </tr>
 
 
@@ -505,41 +501,7 @@
     </table>
 </section>
 
-    <section>
-        <h3 id="inputs">Inputs</h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-2">
-                            <code>led</code>
-                        </td>
-                        <td class="col-md-10">
-                              <p>
-                                <em>Type:</em>    <code>Led</code>
 
-                              </p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-    </section>
-
-    <section>
-        <h3 id="outputs">Outputs</h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-2">
-                            <code>ledChange</code>
-                        </td>
-                        <td class="col-md-10">
-                            <em><code>$event</code> type:</em>    <code><a href="https://angular.io/docs/ts/latest/api/core/index/EventEmitter-class.html" target="_blank" >EventEmitter</a></code>
-
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-    </section>
 
     <section>
         <h3 id="constructor">Constructor</h3>
@@ -547,7 +509,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor()</code>
+                            <code>constructor(router: <a href="https://angular.io/docs/ts/latest/api/router/index/Router-class.html" target="_blank" >Router</a>)</code>
                         </td>
                     </tr>
     
@@ -555,98 +517,23 @@
             </table>
     </section>
 
-    <section>
-        <h3 id="methods">Methods</h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> handleClick</b>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    <code>handleClick(ev: MouseEvent)</code>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-description">
-                                    <b>Returns: </b>    <code>void</code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> getColorString</b>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    <code>getColorString(value: string)</code>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-description">
-                                    <b>Returns: </b>    <code>void</code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-    </section>
 
 </div>
         <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output
-} from &quot;@angular/core&quot;;
-import { Led } from &quot;../shared/led&quot;;
+            <pre><code class="hljs javascript">import { Component, OnInit } from &quot;@angular/core&quot;;
+import { Router } from &quot;@angular/router&quot;;
+import { tap } from &quot;rxjs/operators&quot;;
 
 @Component({
-  selector: &quot;blinkt-led&quot;,
-  templateUrl: &quot;./led.component.html&quot;,
-  styleUrls: [&quot;./led.component.scss&quot;],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: &quot;blinkt-loader&quot;,
+  templateUrl: &quot;./loader.component.html&quot;,
+  styleUrls: [&quot;./loader.component.scss&quot;]
 })
-export class LedComponent implements OnInit {
-  @Input()
-  led: Led;
+export class LoaderComponent implements OnInit {
+  constructor(private router: Router) {}
 
-  @Output()
-  ledChange &#x3D; new EventEmitter&lt;number&gt;();
-
-  constructor() {}
-
-  ngOnInit() {}
-
-  /**
-   *
-   */
-  handleClick(ev: MouseEvent) {
-    if (ev.ctrlKey) {
-      this.ledChange.emit(this.led.index);
-    }
-  }
-
-  getColorString(value: string) {
-    return value + &quot;!&quot;;
+  ngOnInit() {
+    this.router.events.pipe().subscribe();
   }
 }
 </code></pre>

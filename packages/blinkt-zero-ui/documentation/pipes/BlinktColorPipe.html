@@ -112,7 +112,7 @@
                                     <a href="../components/DetailComponent.html" >DetailComponent</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../components/LedComponent.html"  class="active" >LedComponent</a>
+                                    <a href="../components/LedComponent.html" >LedComponent</a>
                                 </li>
                                 <li class="link">
                                     <a href="../components/LedListComponent.html" >LedListComponent</a>
@@ -200,7 +200,7 @@
                                 id="xs-pipes-links"
                             >
                                 <li class="link">
-                                    <a href="../pipes/BlinktColorPipe.html" >BlinktColorPipe</a>
+                                    <a href="../pipes/BlinktColorPipe.html"  class="active" >BlinktColorPipe</a>
                                 </li>
                         </ul>
                     </li>
@@ -322,7 +322,7 @@
                                            <a href="../components/DetailComponent.html" >DetailComponent</a>
                                        </li>
                                        <li class="link">
-                                           <a href="../components/LedComponent.html"  class="active" >LedComponent</a>
+                                           <a href="../components/LedComponent.html" >LedComponent</a>
                                        </li>
                                        <li class="link">
                                            <a href="../components/LedListComponent.html" >LedListComponent</a>
@@ -410,7 +410,7 @@
                                        id="pipes-links"
                    >
                                        <li class="link">
-                                           <a href="../pipes/BlinktColorPipe.html" >BlinktColorPipe</a>
+                                           <a href="../pipes/BlinktColorPipe.html"  class="active" >BlinktColorPipe</a>
                                        </li>
                                </ul>
                            </li>
@@ -434,228 +434,57 @@
                    
                    </nav>
                </div>
-               <div class="content component">
+               <div class="content pipe">
                    <div class="content-data">
 
 
+
+
+
 <ol class="breadcrumb">
-  <li>Components</li>
-  <li>LedComponent</li>
+  <li>Pipes</li>
+  <li>BlinktColorPipe</li>
 </ol>
 
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
+    </li>
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
+    </li>
+</ul>
 
-    <ul class="nav nav-tabs" role="tablist">
-        <li class="active">
-            <a href="#infos" id="infos-tab" role="tab" data-toggle="tab">Infos</a>
-        </li>
-        <li>
-            <a href="#source" role="tab" id="source-tab" data-toggle="tab">Source</a>
-        </li>
-    </ul>
-
-    <div class="tab-content">
-        <div class="tab-pane fade active in" id="infos"><p class="comment">
-    <h3>File</h3>
-</p>
-<p class="comment">
-    <code>src/app/blinkt-common/led/led.component.ts</code>
-</p>
-
-
-
-<section>
-    <h3>Metadata</h3>
-    <table class="table table-sm table-hover">
-        <tbody>
-
-            <tr>
-                <td class="col-md-3">changeDetection</td>
-                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
-            </tr>
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="infos">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/blinkt-common/shared/blinkt-color.pipe.ts</code>
+        </p>
 
 
 
+    </div>
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre><code class="hljs javascript">import { Pipe, PipeTransform } from &quot;@angular/core&quot;;
+import * as tinycolor from &quot;tinycolor2&quot;;
 
-
-
-
-
-
-
-
-            <tr>
-                <td class="col-md-3">selector</td>
-                <td class="col-md-9"><code>blinkt-led</code></td>
-            </tr>
-
-            <tr>
-                <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>led.component.scss</code></td>
-            </tr>
-
-
-
-            <tr>
-                <td class="col-md-3">templateUrl</td>
-                <td class="col-md-9"><code>led.component.html</code></td>
-            </tr>
-
-
-        </tbody>
-    </table>
-</section>
-
-    <section>
-        <h3 id="inputs">Inputs</h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-2">
-                            <code>led</code>
-                        </td>
-                        <td class="col-md-10">
-                              <p>
-                                <em>Type:</em>    <code>Led</code>
-
-                              </p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-    </section>
-
-    <section>
-        <h3 id="outputs">Outputs</h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-2">
-                            <code>ledChange</code>
-                        </td>
-                        <td class="col-md-10">
-                            <em><code>$event</code> type:</em>    <code><a href="https://angular.io/docs/ts/latest/api/core/index/EventEmitter-class.html" target="_blank" >EventEmitter</a></code>
-
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-    </section>
-
-    <section>
-        <h3 id="constructor">Constructor</h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <code>constructor()</code>
-                        </td>
-                    </tr>
-    
-                </tbody>
-            </table>
-    </section>
-
-    <section>
-        <h3 id="methods">Methods</h3>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> handleClick</b>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    <code>handleClick(ev: MouseEvent)</code>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-description">
-                                    <b>Returns: </b>    <code>void</code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="table table-sm table-bordered">
-                <tbody>
-                    <tr>
-                        <td class="col-md-4">
-                            <b> getColorString</b>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-    <code>getColorString(value: string)</code>
-                        </td>
-                    </tr>
-    
-                    <tr>
-                        <td class="col-md-4">
-                                <div class="io-description">
-                                    <b>Returns: </b>    <code>void</code>
-    
-                                </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-    </section>
-
-</div>
-        <div class="tab-pane fade tab-source-code" id="source">
-            <pre><code class="hljs javascript">import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output
-} from &quot;@angular/core&quot;;
-import { Led } from &quot;../shared/led&quot;;
-
-@Component({
-  selector: &quot;blinkt-led&quot;,
-  templateUrl: &quot;./led.component.html&quot;,
-  styleUrls: [&quot;./led.component.scss&quot;],
-  changeDetection: ChangeDetectionStrategy.OnPush
+@Pipe({
+  name: &quot;blinktColor&quot;
 })
-export class LedComponent implements OnInit {
-  @Input()
-  led: Led;
-
-  @Output()
-  ledChange &#x3D; new EventEmitter&lt;number&gt;();
-
-  constructor() {}
-
-  ngOnInit() {}
-
+export class BlinktColorPipe implements PipeTransform {
   /**
    *
    */
-  handleClick(ev: MouseEvent) {
-    if (ev.ctrlKey) {
-      this.ledChange.emit(this.led.index);
-    }
-  }
-
-  getColorString(value: string) {
-    return value + &quot;!&quot;;
+  transform(value: string, format?: any): string {
+    return tinycolor(value).toString(format);
   }
 }
 </code></pre>
-        </div>
     </div>
-
-
-
-
+</div>
 
 
 
