@@ -17,7 +17,7 @@ export class ColorService {
 
   isValidIndex(index: any): Promise<boolean> {
     return Promise.resolve(
-      Number.isNaN(index) ? false : index < 0 || index > 7
+      Number.isNaN(index) ? false : index >= 0 && index <= 7
     );
   }
 
