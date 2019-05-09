@@ -11,3 +11,8 @@ export interface Led {
    */
   color: string;
 }
+
+/**
+ * Ein Farb-Objekt
+ */
+export type Color = Pick<Led, "color">;

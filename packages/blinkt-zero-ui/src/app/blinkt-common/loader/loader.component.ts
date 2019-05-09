@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { tap } from "rxjs/operators";
+import { Event, Router } from "@angular/router";
+import { Observable } from "rxjs";
 
 @Component({
   selector: "blinkt-loader",
@@ -8,9 +8,20 @@ import { tap } from "rxjs/operators";
   styleUrls: ["./loader.component.scss"]
 })
 export class LoaderComponent implements OnInit {
+  /**
+   * Der Strom der Router Events
+   */
+  events$: Observable<Event>;
+
+  /**
+   * @param router Der Router
+   */
   constructor(private router: Router) {}
 
+  /**
+   * Initiales Setup, um auf Events des Routers zu hören
+   */
   ngOnInit() {
-    this.router.events.pipe().subscribe();
+    this.events$ = this.router.events;
   }
 }

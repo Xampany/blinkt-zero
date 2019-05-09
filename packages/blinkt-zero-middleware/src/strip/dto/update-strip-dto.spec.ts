@@ -1,7 +1,7 @@
-import { UpdateStripDto } from './update-strip-dto';
+import { UpdateStripDto } from "./update-strip-dto";
 
-describe('UpdateStripDto', () => {
-  it('should be defined', () => {
+describe("UpdateStripDto", () => {
+  it("should be defined", () => {
     expect(new UpdateStripDto()).toBeDefined();
   });
 });

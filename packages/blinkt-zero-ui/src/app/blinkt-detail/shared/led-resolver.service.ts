@@ -15,14 +15,15 @@ export class LedResolverService implements Resolve<Led> {
   constructor(private readonly color: ColorService) {}
 
   /**
-   *
+   * Lädt die Liste der Leds, bevor die Route aufgerufen wird
    */
   resolve(
     snapshot: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    // tslint:disable-next-line: variable-name
+    _state: RouterStateSnapshot
   ): Observable<Led> {
     const index = snapshot.paramMap.get("index");
 
-    return this.color.getColorObservable(Number(index));
+    return this.color.readColor$(Number(index));
   }
 }

@@ -3,30 +3,51 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import * as tinycolor from "tinycolor2";
-import { Led } from "./led";
+import { Color, Led } from "./led";
+
+// https://tinyurl.com/blinktzero-01
+// https://tinyurl.com/blinktzero-02
+export const enum PiUrl {
+  URL_1 = "https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api",
+  URL_2 = "https://e058e2af50c2bd0a8119d48dffc38266.balena-devices.com/api"
+}
 
 @Injectable()
 export class ColorService {
-  // https://tinyurl.com/blinktzero-01
-  // https://tinyurl.com/blinktzero-02
-
-  private readonly URL_1 =
-    "https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api/colors";
-
+  /**
+   *
+   */
   constructor(private readonly client: HttpClient) {}
 
+  /**
+   *
+   */
   isValidIndex(index: any): Promise<boolean> {
     return Promise.resolve(
       Number.isNaN(index) ? false : index >= 0 && index <= 7
     );
   }
 
-  updateColorObservable(
+  /**
+   *
+   */
+  readColor$(index: number): Observable<any> {
+    const o = this.client.get(`${PiUrl.URL_1}/colors/${index}`, {
+      responseType: "text"
+    });
+
+    return o.pipe(map(color => ({ index, color })));
+  }
+
+  /**
+   *
+   */
+  updateColor$(
     index: number,
     color = tinycolor.random().toString()
   ): Observable<Led> {
     const body = { color };
-    const o = this.client.put(`${this.URL_1}/${index}`, body, {
+    const o = this.client.put(`${PiUrl.URL_1}/colors/${index}`, body, {
       responseType: "text"
     });
 
@@ -34,16 +55,11 @@ export class ColorService {
     return o.pipe(map(color => ({ index, color })));
   }
 
-  getColorObservable(index: number): Observable<any> {
-    const o = this.client.get(`${this.URL_1}/${index}`, {
-      responseType: "text"
-    });
-
-    return o.pipe(map(color => ({ index, color })));
-  }
-
-  updateColorsObservable(body: Pick<Led, "color">): Observable<Led[]> {
-    const o = this.client.put<string[]>(this.URL_1, body);
+  /**
+   *
+   */
+  readColors$(): Observable<Led[]> {
+    const o = this.client.get<string[]>(`${PiUrl.URL_1}/colors`);
 
     return o.pipe(map(colors => this.convertColors(colors)));
   }
@@ -51,8 +67,8 @@ export class ColorService {
   /**
    *
    */
-  readColorsObservable(): Observable<Led[]> {
-    const o = this.client.get<string[]>(this.URL_1);
+  updateColors$(body: Color): Observable<Led[]> {
+    const o = this.client.put<string[]>(`${PiUrl.URL_1}/colors`, body);
 
     return o.pipe(map(colors => this.convertColors(colors)));
   }
