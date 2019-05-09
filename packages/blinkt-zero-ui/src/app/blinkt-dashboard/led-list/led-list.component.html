@@ -1,7 +1,9 @@
 <div class="columns">
   <div class="column" *ngFor="let led of leds">
     <blinkt-led [led]="led" (ledChange)="updateLed($event)">
-      <a class="button" [routerLink]="['leds', led.index]">Details</a>
+      <a class="button is-text" [routerLink]="['leds', led.index]">
+        {{ led.color | blinktColor: "name" }}
+      </a>
     </blinkt-led>
   </div>
 </div>

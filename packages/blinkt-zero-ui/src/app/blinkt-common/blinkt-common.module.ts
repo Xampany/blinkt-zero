@@ -9,7 +9,7 @@ import { ColorService } from "./shared/color.service";
 @NgModule({
   declarations: [LedComponent, LoaderComponent, BlinktColorPipe],
   imports: [CommonModule, HttpClientModule],
-  exports: [LedComponent, LoaderComponent],
+  exports: [LedComponent, LoaderComponent, BlinktColorPipe],
   providers: [
     {
       provide: ColorService,

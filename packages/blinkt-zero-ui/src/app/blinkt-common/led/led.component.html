@@ -1,12 +1,9 @@
-<p class="is-size-5">
-  {{ led.index + 1 }}
+<p class="is-size-7">
+  {{ led.index + 1 }} ({{ led.color | blinktColor: "hex8" }})
 </p>
-<ng-content select=".button"></ng-content>
 <div
   class="box"
   [ngStyle]="{ 'background-color': led.color }"
   (click)="handleClick($event)"
 ></div>
-<p>
-  {{ led.color | blinktColor: "name" }}
-</p>
+<ng-content select=".button"></ng-content>

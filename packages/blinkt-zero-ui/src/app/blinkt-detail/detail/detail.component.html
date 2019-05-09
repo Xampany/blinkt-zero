@@ -1,7 +1,15 @@
-<blinkt-led [led]="led" *ngIf="led; else loader"></blinkt-led>
+<div class="columns is-centered">
+  <div class="column is-narrow">
+    <blinkt-led [led]="led" *ngIf="led; else loader">
+      <a class="button" routerLink="/">
+        Zurück
+      </a>
+    </blinkt-led>
 
-<ng-template #loader>
-  <p>
-    Bin am Laden ...
-  </p>
-</ng-template>
+    <ng-template #loader>
+      <p>
+        Bin am Laden ...
+      </p>
+    </ng-template>
+  </div>
+</div>
