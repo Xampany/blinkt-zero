@@ -9,7 +9,7 @@ const routes: Routes = [
   },
   {
     path: "leds",
-    loadChildren: "./blinkt-detail/blinkt-detail.module#BlinktDetailModule"
+    loadChildren: () => import('./blinkt-detail/blinkt-detail.module').then(m => m.BlinktDetailModule)
   }
 ];
 
