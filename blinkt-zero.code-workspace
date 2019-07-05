@@ -4,10 +4,10 @@
       "path": "."
     },
     {
-      "path": "packages\\blinkt-zero-middleware"
+      "path": "packages/blinkt-zero-middleware"
     },
     {
-      "path": "packages\\blinkt-zero-ui"
+      "path": "packages/blinkt-zero-ui"
     }
   ],
   "settings": {
