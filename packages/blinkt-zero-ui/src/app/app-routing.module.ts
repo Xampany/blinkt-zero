@@ -1,5 +1,5 @@
 import { NgModule } from "@angular/core";
-import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
+import { RouterModule, Routes } from "@angular/router";
 import { DashboardComponent } from "./blinkt-dashboard/dashboard/dashboard.component";
 
 const routes: Routes = [
@@ -9,7 +9,10 @@ const routes: Routes = [
   },
   {
     path: "leds",
-    loadChildren: () => import('./blinkt-detail/blinkt-detail.module').then(m => m.BlinktDetailModule)
+    loadChildren: () =>
+      import("./blinkt-detail/blinkt-detail.module").then(
+        m => m.BlinktDetailModule
+      )
   }
 ];
 
