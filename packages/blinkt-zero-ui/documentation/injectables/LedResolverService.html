@@ -65,9 +65,6 @@
                                     <a href="../modules/AppModule.html" >AppModule</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
-                                </li>
-                                <li class="link">
                                     <a href="../modules/BlinktCommonModule.html" >BlinktCommonModule</a>
                                 </li>
                                 <li class="link">
@@ -273,9 +270,6 @@
                    >
                                        <li class="link">
                                            <a href="../modules/AppModule.html" >AppModule</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/BlinktCommonModule.html" >BlinktCommonModule</a>
@@ -490,12 +484,14 @@
             
                             <tr>
                                 <td class="col-md-4">
-            <code>resolve(snapshot: <a href="https://angular.io/docs/ts/latest/api/router/index/ActivatedRouteSnapshot-interface.html" target="_blank" >ActivatedRouteSnapshot</a>, state: <a href="https://angular.io/docs/ts/latest/api/router/index/RouterStateSnapshot-interface.html" target="_blank" >RouterStateSnapshot</a>)</code>
+            <code>resolve(snapshot: <a href="https://angular.io/docs/ts/latest/api/router/index/ActivatedRouteSnapshot-interface.html" target="_blank" >ActivatedRouteSnapshot</a>, _state: <a href="https://angular.io/docs/ts/latest/api/router/index/RouterStateSnapshot-interface.html" target="_blank" >RouterStateSnapshot</a>)</code>
                                 </td>
                             </tr>
             
                             <tr>
                                 <td class="col-md-4">
+                                        <div class="io-description"><p>Lädt die Liste der Leds, bevor die Route aufgerufen wird</p>
+            </div>
                                         <div class="io-description">
                                             <b>Returns: </b>    <code>Observable&lt;Led&gt;</code>
             
@@ -525,15 +521,16 @@ export class LedResolverService implements Resolve&lt;Led&gt; {
   constructor(private readonly color: ColorService) {}
 
   /**
-   *
+   * Lädt die Liste der Leds, bevor die Route aufgerufen wird
    */
   resolve(
     snapshot: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
+    // tslint:disable-next-line: variable-name
+    _state: RouterStateSnapshot
   ): Observable&lt;Led&gt; {
     const index &#x3D; snapshot.paramMap.get(&quot;index&quot;);
 
-    return this.color.getColorObservable(Number(index));
+    return this.color.readColor$(Number(index));
   }
 }
 </code></pre>

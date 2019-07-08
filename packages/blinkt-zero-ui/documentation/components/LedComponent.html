@@ -65,9 +65,6 @@
                                     <a href="../modules/AppModule.html" >AppModule</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
-                                </li>
-                                <li class="link">
                                     <a href="../modules/BlinktCommonModule.html" >BlinktCommonModule</a>
                                 </li>
                                 <li class="link">
@@ -273,9 +270,6 @@
                    >
                                        <li class="link">
                                            <a href="../modules/AppModule.html" >AppModule</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/BlinktCommonModule.html" >BlinktCommonModule</a>
@@ -514,6 +508,8 @@
                             <code>led</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>Die Led, die angezeigt wird</p>
+</div>
                               <p>
                                 <em>Type:</em>    <code>Led</code>
 
@@ -533,6 +529,8 @@
                             <code>ledChange</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>Event, das ausgelöst wird, um die Farbe der Led zu ändern</p>
+</div>
                             <em><code>$event</code> type:</em>    <code><a href="https://angular.io/docs/ts/latest/api/core/index/EventEmitter-class.html" target="_blank" >EventEmitter</a></code>
 
                         </td>
@@ -573,10 +571,29 @@
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Behandelt das Event beim Anklicken der Led</p>
+    </div>
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>ev</b>
+                                                    </div>
+                                                    <div>
+                                                        <p>Das Mouse Event</p>
+    
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
                                 <div class="io-description">
                                     <b>Returns: </b>    <code>void</code>
     
                                 </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -598,9 +615,26 @@
                     <tr>
                         <td class="col-md-4">
                                 <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>value</b>
+                                                    </div>
+                                                    <div>
+                                                        <p>Der Farbwert</p>
+    
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
                                     <b>Returns: </b>    <code>void</code>
     
                                 </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -626,9 +660,15 @@ import { Led } from &quot;../shared/led&quot;;
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LedComponent implements OnInit {
+  /**
+   * Die Led, die angezeigt wird
+   */
   @Input()
   led: Led;
 
+  /**
+   * Event, das ausgelöst wird, um die Farbe der Led zu ändern
+   */
   @Output()
   ledChange &#x3D; new EventEmitter&lt;number&gt;();
 
@@ -637,7 +677,8 @@ export class LedComponent implements OnInit {
   ngOnInit() {}
 
   /**
-   *
+   * Behandelt das Event beim Anklicken der Led
+   * @param ev Das Mouse Event
    */
   handleClick(ev: MouseEvent) {
     if (ev.ctrlKey) {
@@ -645,6 +686,10 @@ export class LedComponent implements OnInit {
     }
   }
 
+  /**
+   * @deprecated Bitte @see {BlinktColorPipe} verwenden
+   * @param value Der Farbwert
+   */
   getColorString(value: string) {
     return value + &quot;!&quot;;
   }

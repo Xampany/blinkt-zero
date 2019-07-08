@@ -65,9 +65,6 @@
                                     <a href="../modules/AppModule.html" >AppModule</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
-                                </li>
-                                <li class="link">
                                     <a href="../modules/BlinktCommonModule.html" >BlinktCommonModule</a>
                                 </li>
                                 <li class="link">
@@ -273,9 +270,6 @@
                    >
                                        <li class="link">
                                            <a href="../modules/AppModule.html" >AppModule</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/BlinktCommonModule.html" >BlinktCommonModule</a>
@@ -511,6 +505,8 @@
                             <code>colorChange</code>
                         </td>
                         <td class="col-md-10">
+                            <div><p>Der Event Emitter, der nach Änderungen des Farbwerts im Formular aktiv wird</p>
+</div>
                             <em><code>$event</code> type:</em>    <code><a href="https://angular.io/docs/ts/latest/api/core/index/EventEmitter-class.html" target="_blank" >EventEmitter</a></code>
 
                         </td>
@@ -529,6 +525,24 @@
                         </td>
                     </tr>
     
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>fb</b>
+                                                    </div>
+                                                    <div>
+                                                        <p>Der Form-Builder</p>
+    
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -552,9 +566,26 @@
                     <tr>
                         <td class="col-md-4">
                                 <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>value</b>
+                                                    </div>
+                                                    <div>
+                                                        <p>Die eingegebene Farbe</p>
+    
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
                                     <b>Returns: </b>    <code>void</code>
     
                                 </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -581,6 +612,12 @@
                                 <i>Default value: </i><code>red</code>
                             </td>
                         </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Die initiale Farbe</p>
+    </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
@@ -594,6 +631,12 @@
                         <td class="col-md-4">
                             <code>form:     <code><a href="https://angular.io/docs/ts/latest/api/forms/index/FormGroup-class.html" target="_blank" >FormGroup</a></code>
     </bcode>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Das (reaktive) Formular</p>
+    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -612,16 +655,19 @@ import {
   debounceTime,
   distinctUntilChanged,
   filter,
-  mapTo,
-  tap,
+  map,
   withLatestFrom
 } from &quot;rxjs/operators&quot;;
 import * as tinycolor from &quot;tinycolor2&quot;;
-import { Led } from &quot;../../blinkt-common/shared/led&quot;;
+import { Color } from &quot;../../blinkt-common/shared/led&quot;;
 
-function colorValidator(): AsyncValidatorFn {
+/**
+ * Erzeugt einen asynchronen Validierer für Farbwerte
+ * @param delay Die Verzögerung in [ms], mit der der Validierer reagieren soll
+ */
+function colorValidator(delay &#x3D; 0): AsyncValidatorFn {
   return (control: AbstractControl) &#x3D;&gt; {
-    return new Promise((resolve, reject) &#x3D;&gt; {
+    return new Promise(resolve &#x3D;&gt; {
       setTimeout(() &#x3D;&gt; {
         resolve(
           tinycolor(control.value).isValid()
@@ -630,7 +676,7 @@ function colorValidator(): AsyncValidatorFn {
                 color: true
               }
         );
-      }, 400);
+      }, delay);
     });
   };
 }
@@ -641,15 +687,31 @@ function colorValidator(): AsyncValidatorFn {
   styleUrls: [&quot;./color-form.component.scss&quot;]
 })
 export class ColorFormComponent implements OnInit {
+  /**
+   * Der Event Emitter, der nach Änderungen des Farbwerts im Formular aktiv wird
+   */
   @Output()
-  colorChange &#x3D; new EventEmitter&lt;Pick&lt;Led, &quot;color&quot;&gt;&gt;();
+  colorChange &#x3D; new EventEmitter&lt;Color&gt;();
 
+  /**
+   * Die initiale Farbe
+   */
   color &#x3D; &quot;red&quot;;
 
+  /**
+   * Das (reaktive) Formular
+   */
   form: FormGroup;
 
+  /**
+   *
+   * @param fb Der Form-Builder
+   */
   constructor(private readonly fb: FormBuilder) {}
 
+  /**
+   * Formular initialisieren
+   */
   ngOnInit() {
     const input &#x3D; this.fb.control(
       {
@@ -657,7 +719,7 @@ export class ColorFormComponent implements OnInit {
         disabled: false
       },
       {
-        asyncValidators: colorValidator()
+        asyncValidators: colorValidator(400)
       }
     );
 
@@ -665,30 +727,29 @@ export class ColorFormComponent implements OnInit {
       color: input
     });
 
-    const input$ &#x3D; input.valueChanges.pipe(
+    const value$ &#x3D; input.valueChanges.pipe(
       debounceTime(300),
-      distinctUntilChanged()
+      distinctUntilChanged(),
+      map(String)
     );
 
     input.statusChanges
       .pipe(
-        tap(res &#x3D;&gt; console.log(res)),
         filter(status &#x3D;&gt; status &#x3D;&#x3D;&#x3D; &quot;VALID&quot;),
-        mapTo(true),
-        withLatestFrom(input$)
+        withLatestFrom(value$),
+        map(([, color]): Color &#x3D;&gt; ({ color }))
       )
       .subscribe({
-        next: res &#x3D;&gt; {
-          const [valid, color] &#x3D; res;
-          this.updateColor({ color });
+        next: color &#x3D;&gt; {
+          this.updateColor(color);
         }
       });
   }
 
   /**
-   *
+   * @param value Die eingegebene Farbe
    */
-  updateColor(value: Pick&lt;Led, &quot;color&quot;&gt;) {
+  updateColor(value: Color) {
     this.colorChange.emit(value);
   }
 }

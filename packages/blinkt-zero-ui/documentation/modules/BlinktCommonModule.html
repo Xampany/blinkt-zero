@@ -65,9 +65,6 @@
                                     <a href="../modules/AppModule.html" >AppModule</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
-                                </li>
-                                <li class="link">
                                     <a href="../modules/BlinktCommonModule.html"  class="active" >BlinktCommonModule</a>
                                 </li>
                                 <li class="link">
@@ -273,9 +270,6 @@
                    >
                                        <li class="link">
                                            <a href="../modules/AppModule.html" >AppModule</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/BlinktCommonModule.html"  class="active" >BlinktCommonModule</a>
@@ -499,6 +493,9 @@
                             <li class="list-group-item">
                                     <a href="../components/LoaderComponent.html" >LoaderComponent</a>
                             </li>
+                            <li class="list-group-item">
+                                    <a href="../pipes/BlinktColorPipe.html" >BlinktColorPipe</a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -516,7 +513,7 @@ import { ColorService } from &quot;./shared/color.service&quot;;
 @NgModule({
   declarations: [LedComponent, LoaderComponent, BlinktColorPipe],
   imports: [CommonModule, HttpClientModule],
-  exports: [LedComponent, LoaderComponent],
+  exports: [LedComponent, LoaderComponent, BlinktColorPipe],
   providers: [
     {
       provide: ColorService,

@@ -34,7 +34,7 @@
 </g>
 <g id="clust7" class="cluster">
 <title>cluster_BlinktCommonModule_exports</title>
-<polygon fill="none" stroke="#000000" points="580,-208 580,-260 845,-260 845,-208 580,-208"/>
+<polygon fill="none" stroke="#000000" points="517,-208 517,-260 912,-260 912,-208 517,-208"/>
 </g>
 <g id="clust9" class="cluster">
 <title>cluster_BlinktCommonModule_providers</title>
@@ -67,8 +67,8 @@
 <!-- LoaderComponent&#45;&gt;BlinktCommonModule -->
 <g id="edge2" class="edge">
 <title>LoaderComponent&#45;&gt;BlinktCommonModule</title>
-<path fill="none" stroke="#000000" d="M916,-122.0225C916,-139.3734 916,-163 916,-163 916,-163 800.2525,-163 800.2525,-163"/>
-<polygon fill="#000000" stroke="#000000" points="800.2525,-159.5001 790.2525,-163 800.2524,-166.5001 800.2525,-159.5001"/>
+<path fill="none" stroke="#000000" d="M879.9062,-122.0225C879.9062,-139.3734 879.9062,-163 879.9062,-163 879.9062,-163 800.3515,-163 800.3515,-163"/>
+<polygon fill="#000000" stroke="#000000" points="800.3516,-159.5001 790.3515,-163 800.3515,-166.5001 800.3516,-159.5001"/>
 </g>
 <!-- BlinktColorPipe -->
 <g id="node3" class="node">
@@ -85,26 +85,38 @@
 <!-- LedComponent  -->
 <g id="node7" class="node">
 <title>LedComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="837.1003,-252 730.8997,-252 730.8997,-216 837.1003,-216 837.1003,-252"/>
-<text text-anchor="middle" x="784" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">LedComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="904.1003,-252 797.8997,-252 797.8997,-216 904.1003,-216 904.1003,-252"/>
+<text text-anchor="middle" x="851" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">LedComponent </text>
 </g>
 <!-- BlinktCommonModule&#45;&gt;LedComponent  -->
 <g id="edge6" class="edge">
 <title>BlinktCommonModule&#45;&gt;LedComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M760.5191,-187.1061C760.5191,-187.1061 760.5191,-205.991 760.5191,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="757.0192,-205.9909 760.5191,-215.991 764.0192,-205.991 757.0192,-205.9909"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M784.7877,-187.1061C784.7877,-206.3391 784.7877,-234 784.7877,-234 784.7877,-234 787.8691,-234 787.8691,-234"/>
+<polygon fill="#000000" stroke="#000000" points="787.8692,-237.5001 797.8691,-234 787.8691,-230.5001 787.8692,-237.5001"/>
 </g>
 <!-- LoaderComponent  -->
 <g id="node8" class="node">
 <title>LoaderComponent </title>
-<polygon fill="#fb8072" stroke="#000000" points="712.4757,-252 587.5243,-252 587.5243,-216 712.4757,-216 712.4757,-252"/>
-<text text-anchor="middle" x="650" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">LoaderComponent </text>
+<polygon fill="#fb8072" stroke="#000000" points="779.4757,-252 654.5243,-252 654.5243,-216 779.4757,-216 779.4757,-252"/>
+<text text-anchor="middle" x="717" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">LoaderComponent </text>
 </g>
 <!-- BlinktCommonModule&#45;&gt;LoaderComponent  -->
 <g id="edge7" class="edge">
 <title>BlinktCommonModule&#45;&gt;LoaderComponent </title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M677.9497,-187.1061C677.9497,-187.1061 677.9497,-205.991 677.9497,-205.991"/>
-<polygon fill="#000000" stroke="#000000" points="674.4498,-205.9909 677.9497,-215.991 681.4498,-205.991 674.4498,-205.9909"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M717,-187.1061C717,-187.1061 717,-205.991 717,-205.991"/>
+<polygon fill="#000000" stroke="#000000" points="713.5001,-205.9909 717,-215.991 720.5001,-205.991 713.5001,-205.9909"/>
+</g>
+<!-- BlinktColorPipe  -->
+<g id="node9" class="node">
+<title>BlinktColorPipe </title>
+<polygon fill="#fb8072" stroke="#000000" points="636.7844,-252 525.2156,-252 525.2156,-216 636.7844,-216 636.7844,-252"/>
+<text text-anchor="middle" x="581" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">BlinktColorPipe </text>
+</g>
+<!-- BlinktCommonModule&#45;&gt;BlinktColorPipe  -->
+<g id="edge8" class="edge">
+<title>BlinktCommonModule&#45;&gt;BlinktColorPipe </title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M649.2123,-187.1061C649.2123,-206.3391 649.2123,-234 649.2123,-234 649.2123,-234 646.7011,-234 646.7011,-234"/>
+<polygon fill="#000000" stroke="#000000" points="646.7011,-230.5001 636.7011,-234 646.7011,-237.5001 646.7011,-230.5001"/>
 </g>
 <!-- CommonModule -->
 <g id="node5" class="node">
@@ -127,17 +139,17 @@
 <!-- HttpClientModule&#45;&gt;BlinktCommonModule -->
 <g id="edge5" class="edge">
 <title>HttpClientModule&#45;&gt;BlinktCommonModule</title>
-<path fill="none" stroke="#000000" d="M517,-122.0225C517,-139.3734 517,-163 517,-163 517,-163 633.663,-163 633.663,-163"/>
-<polygon fill="#000000" stroke="#000000" points="633.6631,-166.5001 643.663,-163 633.663,-159.5001 633.6631,-166.5001"/>
+<path fill="none" stroke="#000000" d="M550.8442,-122.0225C550.8442,-139.3734 550.8442,-163 550.8442,-163 550.8442,-163 633.638,-163 633.638,-163"/>
+<polygon fill="#000000" stroke="#000000" points="633.638,-166.5001 643.638,-163 633.6379,-159.5001 633.638,-166.5001"/>
 </g>
 <!-- { provide: ColorService, useClass: ColorService } -->
-<g id="node9" class="node">
+<g id="node10" class="node">
 <title>{ provide: ColorService, useClass: ColorService }</title>
 <ellipse fill="#fdb462" stroke="#000000" cx="229" cy="-104" rx="205.2033" ry="18"/>
 <text text-anchor="middle" x="229" y="-99.8" font-family="Times,serif" font-size="14.00" fill="#000000">{ provide: ColorService, useClass: ColorService }</text>
 </g>
 <!-- { provide: ColorService, useClass: ColorService }&#45;&gt;BlinktCommonModule -->
-<g id="edge8" class="edge">
+<g id="edge9" class="edge">
 <title>{ provide: ColorService, useClass: ColorService }&#45;&gt;BlinktCommonModule</title>
 <path fill="none" stroke="#000000" d="M229,-122.2843C229,-143.3211 229,-175 229,-175 229,-175 633.6775,-175 633.6775,-175"/>
 <polygon fill="#000000" stroke="#000000" points="633.6775,-178.5001 643.6775,-175 633.6774,-171.5001 633.6775,-178.5001"/>

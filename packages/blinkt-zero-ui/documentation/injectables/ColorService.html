@@ -65,9 +65,6 @@
                                     <a href="../modules/AppModule.html" >AppModule</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
-                                </li>
-                                <li class="link">
                                     <a href="../modules/BlinktCommonModule.html" >BlinktCommonModule</a>
                                 </li>
                                 <li class="link">
@@ -273,9 +270,6 @@
                    >
                                        <li class="link">
                                            <a href="../modules/AppModule.html" >AppModule</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/BlinktCommonModule.html" >BlinktCommonModule</a>
@@ -508,37 +502,13 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b> updateColorObservable</b>
+                                    <b> readColor$</b>
                                 </td>
                             </tr>
             
                             <tr>
                                 <td class="col-md-4">
-            <code>updateColorObservable(index: number, color: string)</code>
-                                </td>
-                            </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-                                        <div class="io-description">
-                                            <b>Returns: </b>    <code>Observable&lt;Led&gt;</code>
-            
-                                        </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="table table-sm table-bordered">
-                        <tbody>
-                            <tr>
-                                <td class="col-md-4">
-                                    <b> getColorObservable</b>
-                                </td>
-                            </tr>
-            
-                            <tr>
-                                <td class="col-md-4">
-            <code>getColorObservable(index: number)</code>
+            <code>readColor$(index: number)</code>
                                 </td>
                             </tr>
             
@@ -556,13 +526,37 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b> updateColorsObservable</b>
+                                    <b> updateColor$</b>
                                 </td>
                             </tr>
             
                             <tr>
                                 <td class="col-md-4">
-            <code>updateColorsObservable(body: Pick<Led, "color">)</code>
+            <code>updateColor$(index: number, color: string)</code>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>Observable&lt;Led&gt;</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="col-md-4">
+                                    <b> readColors$</b>
+                                </td>
+                            </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+            <code>readColors$()</code>
                                 </td>
                             </tr>
             
@@ -580,13 +574,13 @@
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b> readColorsObservable</b>
+                                    <b> updateColors$</b>
                                 </td>
                             </tr>
             
                             <tr>
                                 <td class="col-md-4">
-            <code>readColorsObservable()</code>
+            <code>updateColors$(body: Pick<Led, "color">)</code>
                                 </td>
                             </tr>
             
@@ -624,31 +618,35 @@
                             </tr>
                         </tbody>
                     </table>
-            </section>
-
-            <section>
-                <h3 id="inputs">Properties</h3>
                     <table class="table table-sm table-bordered">
                         <tbody>
                             <tr>
                                 <td class="col-md-4">
-                                    <b><span class="modifier">Private</span> URL_1</b>
+                                    <b><span class="modifier">Private</span> convertColors</b>
                                 </td>
                             </tr>
+            
                             <tr>
                                 <td class="col-md-4">
-                                    <span class="modifier-icon fa fa-lock"></span><code>URL_1:     <code>&quot;https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api/colors&quot;</code>
-            </bcode>
+                                        <span class="modifier-icon method fa fa-play lock">
+                                            <span class="fa fa-lock"></span>
+                                        </span>
+                                    <code>convertColors(colors: string[])</code>
                                 </td>
                             </tr>
-                                <tr>
-                                    <td class="col-md-4">
-                                        <i>Default value: </i><code>https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api/colors</code>
-                                    </td>
-                                </tr>
+            
+                            <tr>
+                                <td class="col-md-4">
+                                        <div class="io-description">
+                                            <b>Returns: </b>    <code>Led[]</code>
+            
+                                        </div>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
             </section>
+
     </div>
     <div class="tab-pane fade tab-source-code" id="source">
         <pre><code class="hljs javascript">import { HttpClient } from &quot;@angular/common/http&quot;;
@@ -656,30 +654,51 @@ import { Injectable } from &quot;@angular/core&quot;;
 import { Observable } from &quot;rxjs&quot;;
 import { map } from &quot;rxjs/operators&quot;;
 import * as tinycolor from &quot;tinycolor2&quot;;
-import { Led } from &quot;./led&quot;;
+import { Color, Led } from &quot;./led&quot;;
+
+// https://tinyurl.com/blinktzero-01
+// https://tinyurl.com/blinktzero-02
+export const enum PiUrl {
+  URL_1 &#x3D; &quot;https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api&quot;,
+  URL_2 &#x3D; &quot;https://e058e2af50c2bd0a8119d48dffc38266.balena-devices.com/api&quot;
+}
 
 @Injectable()
 export class ColorService {
-  // https://tinyurl.com/blinktzero-01
-  // https://tinyurl.com/blinktzero-02
-
-  private readonly URL_1 &#x3D;
-    &quot;https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api/colors&quot;;
-
+  /**
+   *
+   */
   constructor(private readonly client: HttpClient) {}
 
+  /**
+   *
+   */
   isValidIndex(index: any): Promise&lt;boolean&gt; {
     return Promise.resolve(
-      Number.isNaN(index) ? false : index &lt; 0 || index &gt; 7 ? false : true
+      Number.isNaN(index) ? false : index &gt;&#x3D; 0 &amp;&amp; index &lt;&#x3D; 7
     );
   }
 
-  updateColorObservable(
+  /**
+   *
+   */
+  readColor$(index: number): Observable&lt;any&gt; {
+    const o &#x3D; this.client.get(&#x60;${PiUrl.URL_1}/colors/${index}&#x60;, {
+      responseType: &quot;text&quot;
+    });
+
+    return o.pipe(map(color &#x3D;&gt; ({ index, color })));
+  }
+
+  /**
+   *
+   */
+  updateColor$(
     index: number,
     color &#x3D; tinycolor.random().toString()
   ): Observable&lt;Led&gt; {
     const body &#x3D; { color };
-    const o &#x3D; this.client.put(&#x60;${this.URL_1}/${index}&#x60;, body, {
+    const o &#x3D; this.client.put(&#x60;${PiUrl.URL_1}/colors/${index}&#x60;, body, {
       responseType: &quot;text&quot;
     });
 
@@ -687,45 +706,22 @@ export class ColorService {
     return o.pipe(map(color &#x3D;&gt; ({ index, color })));
   }
 
-  getColorObservable(index: number): Observable&lt;any&gt; {
-    const o &#x3D; this.client.get(&#x60;${this.URL_1}/${index}&#x60;, {
-      responseType: &quot;text&quot;
-    });
+  /**
+   *
+   */
+  readColors$(): Observable&lt;Led[]&gt; {
+    const o &#x3D; this.client.get&lt;string[]&gt;(&#x60;${PiUrl.URL_1}/colors&#x60;);
 
-    return o.pipe(map(color &#x3D;&gt; ({ index, color })));
-  }
-
-  updateColorsObservable(body: Pick&lt;Led, &quot;color&quot;&gt;): Observable&lt;Led[]&gt; {
-    const o &#x3D; this.client.put&lt;string[]&gt;(this.URL_1, body);
-
-    return o.pipe(
-      map(colors &#x3D;&gt; {
-        return colors.map((color, index) &#x3D;&gt; {
-          return {
-            color,
-            index
-          };
-        });
-      })
-    );
+    return o.pipe(map(colors &#x3D;&gt; this.convertColors(colors)));
   }
 
   /**
    *
    */
-  readColorsObservable(): Observable&lt;Led[]&gt; {
-    const o &#x3D; this.client.get&lt;string[]&gt;(this.URL_1);
+  updateColors$(body: Color): Observable&lt;Led[]&gt; {
+    const o &#x3D; this.client.put&lt;string[]&gt;(&#x60;${PiUrl.URL_1}/colors&#x60;, body);
 
-    return o.pipe(
-      map(colors &#x3D;&gt; {
-        return colors.map((color, index) &#x3D;&gt; {
-          return {
-            color,
-            index
-          };
-        });
-      })
-    );
+    return o.pipe(map(colors &#x3D;&gt; this.convertColors(colors)));
   }
 
   /**
@@ -736,14 +732,19 @@ export class ColorService {
       &quot;https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api/colors&quot;
     )
       .then(response &#x3D;&gt; response.json())
-      .then(colors &#x3D;&gt; {
-        return colors.map((color, index) &#x3D;&gt; {
-          return {
-            color,
-            index
-          };
-        });
-      });
+      .then(colors &#x3D;&gt; this.convertColors(colors));
+  }
+
+  /**
+   *
+   */
+  private convertColors(colors: string[]): Led[] {
+    return colors.map((color, index) &#x3D;&gt; {
+      return {
+        color,
+        index
+      };
+    });
   }
 }
 </code></pre>

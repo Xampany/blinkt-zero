@@ -65,9 +65,6 @@
                                     <a href="../modules/AppModule.html" >AppModule</a>
                                 </li>
                                 <li class="link">
-                                    <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
-                                </li>
-                                <li class="link">
                                     <a href="../modules/BlinktCommonModule.html" >BlinktCommonModule</a>
                                 </li>
                                 <li class="link">
@@ -273,9 +270,6 @@
                    >
                                        <li class="link">
                                            <a href="../modules/AppModule.html" >AppModule</a>
-                                       </li>
-                                       <li class="link">
-                                           <a href="../modules/AppRoutingModule.html" >AppRoutingModule</a>
                                        </li>
                                        <li class="link">
                                            <a href="../modules/BlinktCommonModule.html" >BlinktCommonModule</a>
@@ -509,7 +503,7 @@
                 <tbody>
                     <tr>
                         <td class="col-md-4">
-                            <code>constructor(_color: any)</code>
+                            <code>constructor(_color: <a href="../injectables/ColorService.html" >ColorService</a>)</code>
                         </td>
                     </tr>
     
@@ -535,10 +529,29 @@
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Aktualisiert die Farbe einer Led</p>
+    </div>
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>index</b>
+                                                    </div>
+                                                    <div>
+                                                        <p>Der Index der Led</p>
+    
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
                                 <div class="io-description">
                                     <b>Returns: </b>    <code>void</code>
     
                                 </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -553,16 +566,35 @@
     
                     <tr>
                         <td class="col-md-4">
-    <code>updateLeds(value: any)</code>
+    <code>updateLeds(value: Pick<Led, "color">)</code>
                         </td>
                     </tr>
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Aktualisiert die Farbe aller Leds</p>
+    </div>
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>value</b>
+                                                    </div>
+                                                    <div>
+                                                        <p>Die Farbe</p>
+    
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
                                 <div class="io-description">
                                     <b>Returns: </b>    <code>void</code>
     
                                 </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
                         </td>
                     </tr>
                 </tbody>
@@ -583,6 +615,8 @@
     
                     <tr>
                         <td class="col-md-4">
+                                <div class="io-description"><p>Lädt die Liste der Leds</p>
+    </div>
                                 <div class="io-description">
                                     <b>Returns: </b>    <code>void</code>
     
@@ -608,6 +642,12 @@
     </bcode>
                         </td>
                     </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Subject zum sicheren Löschen aller Subscriptions</p>
+    </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <table class="table table-sm table-bordered">
@@ -623,6 +663,12 @@
     </bcode>
                         </td>
                     </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Die Liste der Leds</p>
+    </div>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
     </section>
@@ -631,8 +677,8 @@
             <pre><code class="hljs javascript">import { Component, OnDestroy, OnInit } from &quot;@angular/core&quot;;
 import { interval, Subject } from &quot;rxjs&quot;;
 import { switchMap, take, takeUntil } from &quot;rxjs/operators&quot;;
-import { ColorService } from &quot;src/app/blinkt-common/shared/color.service&quot;;
-import { Led } from &quot;../../blinkt-common/shared/led&quot;;
+import { ColorService } from &quot;../../blinkt-common/shared/color.service&quot;;
+import { Color, Led } from &quot;../../blinkt-common/shared/led&quot;;
 
 @Component({
   selector: &quot;blinkt-led-list&quot;,
@@ -640,41 +686,60 @@ import { Led } from &quot;../../blinkt-common/shared/led&quot;;
   styleUrls: [&quot;./led-list.component.scss&quot;]
 })
 export class LedListComponent implements OnInit, OnDestroy {
+  /**
+   * Die Liste der Leds
+   */
   leds: Led[];
 
+  /**
+   * Subject zum sicheren Löschen aller Subscriptions
+   */
   private readonly destroy$ &#x3D; new Subject();
 
   // tslint:disable-next-line: variable-name
   constructor(private readonly _color: ColorService) {}
 
+  /**
+   * Initiales Setup
+   */
   ngOnInit() {
     this.loadLeds();
   }
 
+  /**
+   * Aufräumen vor dem Löschen der Komponente
+   */
   ngOnDestroy() {
     this.destroy$.next();
   }
 
+  /**
+   * Aktualisiert die Farbe einer Led
+   * @param index Der Index der Led
+   */
   updateLed(index: number) {
-    this._color.updateColorObservable(index).subscribe({
+    this._color.updateColor$(index).subscribe({
       next: led &#x3D;&gt; (this.leds[index] &#x3D; led)
     });
   }
 
-  updateLeds(value: any) {
-    this._color.updateColorsObservable(value).subscribe({
+  /**
+   * Aktualisiert die Farbe aller Leds
+   * @param value Die Farbe
+   */
+  updateLeds(value: Color) {
+    this._color.updateColors$(value).subscribe({
       next: leds &#x3D;&gt; (this.leds &#x3D; leds)
     });
   }
 
   /**
-   *
+   * Lädt die Liste der Leds
    */
   loadLeds() {
-    // this._color.readColorsPromise().then(leds &#x3D;&gt; (this.leds &#x3D; leds));
     const interval$ &#x3D; interval(500);
 
-    const colors$ &#x3D; this._color.readColorsObservable();
+    const colors$ &#x3D; this._color.readColors$();
 
     interval$
       .pipe(
