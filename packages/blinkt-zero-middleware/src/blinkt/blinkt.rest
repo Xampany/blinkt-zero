@@ -1,0 +1,11 @@
+@host = https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api
+
+###
+// Alle Farben
+GET {{host}}/colors
+
+###
+// Eine Farbe
+GET {{host}}/colors/1
+
+
