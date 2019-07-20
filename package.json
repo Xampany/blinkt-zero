@@ -20,7 +20,7 @@
   "devDependencies": {
     "@angular/cli": "8.1.2",
     "@nestjs/cli": "6.6.0",
-    "@types/node": "12.0.0",
+    "@types/node": "12.6.8",
     "husky": "2.2.0",
     "oao": "1.6.0",
     "prettier": "1.17.0",
