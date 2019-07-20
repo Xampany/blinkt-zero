@@ -24,7 +24,7 @@
     "husky": "2.2.0",
     "oao": "1.6.0",
     "prettier": "1.18.2",
-    "tslint": "5.16.0",
+    "tslint": "5.18.0",
     "tslint-sonarts": "1.9.0"
   }
 }
