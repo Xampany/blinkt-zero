@@ -26,7 +26,7 @@
     "@nestjs/platform-express": "6.4.1",
     "@nestjs/swagger": "3.0.2",
     "class-validator": "0.9.1",
-    "helmet": "3.18.0",
+    "helmet": "3.19.0",
     "onoff": "4.1.3",
     "reflect-metadata": "0.1.13",
     "rimraf": "2.6.3",
