@@ -1,23 +1,19 @@
 import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
+import { Inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import * as tinycolor from "tinycolor2";
 import { Color, Led } from "./led";
-
-// https://tinyurl.com/blinktzero-01
-// https://tinyurl.com/blinktzero-02
-export const enum PiUrl {
-  URL_1 = "https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api",
-  URL_2 = "https://e058e2af50c2bd0a8119d48dffc38266.balena-devices.com/api"
-}
 
 @Injectable()
 export class ColorService {
   /**
    *
    */
-  constructor(private readonly client: HttpClient) {}
+  constructor(
+    private readonly client: HttpClient,
+    @Inject("PiUrl") private readonly url: string
+  ) {}
 
   /**
    *
@@ -32,7 +28,7 @@ export class ColorService {
    *
    */
   readColor$(index: number): Observable<any> {
-    const o = this.client.get(`${PiUrl.URL_1}/colors/${index}`, {
+    const o = this.client.get(`${this.url}/colors/${index}`, {
       responseType: "text"
     });
 
@@ -47,7 +43,7 @@ export class ColorService {
     color = tinycolor.random().toString()
   ): Observable<Led> {
     const body = { color };
-    const o = this.client.put(`${PiUrl.URL_1}/colors/${index}`, body, {
+    const o = this.client.put(`${this.url}/colors/${index}`, body, {
       responseType: "text"
     });
 
@@ -59,7 +55,7 @@ export class ColorService {
    *
    */
   readColors$(): Observable<Led[]> {
-    const o = this.client.get<string[]>(`${PiUrl.URL_1}/colors`);
+    const o = this.client.get<string[]>(`${this.url}/colors`);
 
     return o.pipe(map(colors => this.convertColors(colors)));
   }
@@ -68,7 +64,7 @@ export class ColorService {
    *
    */
   updateColors$(body: Color): Observable<Led[]> {
-    const o = this.client.put<string[]>(`${PiUrl.URL_1}/colors`, body);
+    const o = this.client.put<string[]>(`${this.url}/colors`, body);
 
     return o.pipe(map(colors => this.convertColors(colors)));
   }
