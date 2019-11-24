@@ -72,12 +72,10 @@ export class ColorService {
   /**
    *
    */
-  readColorsPromise(): Promise<Led[]> {
-    return fetch(
-      "https://ae680a0551cf8bd14b83c131e0796b82.balena-devices.com/api/colors"
-    )
-      .then(response => response.json())
-      .then(colors => this.convertColors(colors));
+  async readColors(): Promise<Led[]> {
+    const response = await fetch(`${this.url}/colors`);
+    const colors = await response.json();
+    return this.convertColors(colors);
   }
 
   /**
