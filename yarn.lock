@@ -178,7 +178,7 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/cli@^8.3.19":
+"@angular/cli@8.3.19":
   version "8.3.19"
   resolved "https://registry.yarnpkg.com/@angular/cli/-/cli-8.3.19.tgz#c8ffb91a9a3662ad8eeb9151982fd59a39ee800a"
   integrity sha512-XzKlc2+M3flrT8UVd+oYgIohQMuXU/ZkP+RWj0qd99C/FTh5UoYflXXD1BwG15fqNIPA4K9uUYNEuDlb8TGWiA==
@@ -1240,7 +1240,7 @@
     ts-morph "^4.0.0"
     typescript "3.4.5"
 
-"@nestjs/swagger@^3.1.0":
+"@nestjs/swagger@3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@nestjs/swagger/-/swagger-3.1.0.tgz#eea2d2ef7416a588e5f122b58cd194884e265dc4"
   integrity sha512-12J7cEcj1K2TtCrxVktRrdW6j5bT7BaruNXPlyzBjs3uJopLLOYSR7j5+2JvlPK+uQcnnZFIOiffYEXoozm/zg==
