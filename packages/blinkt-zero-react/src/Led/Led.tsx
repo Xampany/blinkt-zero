@@ -26,7 +26,7 @@ const Led: React.FunctionComponent<Props> = ({
   return (
     <Fragment>
       <p>Led {index + 1}</p>
-      <div className="box" style={{ backgroundColor: color }}></div>
+      <div className="box" style={{ backgroundColor: color }} onClick={(ev) => console.log(ev)}></div>
     </Fragment>
   );
 };
