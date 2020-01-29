@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Led from "../Led/Led";
+import { API_URL_01 } from "../environment";
 
 /**
  * Stellt eine Liste von Leds visuell dar
@@ -8,20 +9,25 @@ const LedList: React.FunctionComponent = () => {
   /**
    * Die Liste der Leds
    */
-  const leds = [
-    {
-      index: 0,
-      color: "red"
-    },
-    {
-      index: 1,
-      color: "green"
-    },
-    {
-      index: 2,
-      color: "blue"
-    }
-  ];
+  const [leds, setLeds] = useState<{ index: number; color: string }[]>([]);
+
+  /**
+   * Liste über REST API laden
+   */
+  useEffect(() => {
+    // HINT: an useEffect darf keine async function übergeben werden
+    const readLeds = async () => {
+      const URL = `${API_URL_01}/colors`;
+
+      const response = await fetch(URL);
+
+      const payload = (await response.json()) as string[];
+
+      return payload.map((color, index) => ({ index, color }));
+    };
+
+    readLeds().then(leds => setLeds(leds));
+  }, []);
 
   return (
     <table>
