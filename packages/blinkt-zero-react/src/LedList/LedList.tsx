@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Led from "../Led/Led";
 import { API_URL_01 } from "../environment";
+import axios from "axios";
 
 /**
  * Stellt eine Liste von Leds visuell dar
@@ -19,9 +20,9 @@ const LedList: React.FunctionComponent = () => {
     const readLeds = async () => {
       const URL = `${API_URL_01}/colors`;
 
-      const response = await fetch(URL);
+      const response = await axios.get<string[]>(URL);
 
-      const payload = (await response.json()) as string[];
+      const payload = response.data;
 
       return payload.map((color, index) => ({ index, color }));
     };
