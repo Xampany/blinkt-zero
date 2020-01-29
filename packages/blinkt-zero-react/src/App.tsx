@@ -5,7 +5,7 @@ import Led from './Led/Led';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Led />
+      <Led index={0} />
     </div>
   );
 }
