@@ -13,20 +13,40 @@ type Props = {
    * Die Farbe als valider CSS-String
    */
   color?: string;
+  /**
+   * Reagiert auf das Auswählen der Led
+   */
+  onSelect?: (index: number) => void;
 };
 
 /**
  * Stellt eine einzelne Led visuell dar.
- * @param props 
+ * @param props
  */
 const Led: React.FunctionComponent<Props> = ({
   index,
-  color = "goldenrod"
+  color = "goldenrod",
+  onSelect = () => {}
 }) => {
+  /**
+   * Reagiert auf einen Klick auf die farbige Box
+   * @param ev
+   */
+  function handleClick(ev: React.MouseEvent) {
+    if (ev.ctrlKey || ev.metaKey) {
+      // console.log(ev, ev.metaKey);
+      onSelect(index);
+    }
+  }
+
   return (
     <Fragment>
       <p>Led {index + 1}</p>
-      <div className="box" style={{ backgroundColor: color }} onClick={(ev) => console.log(ev)}></div>
+      <div
+        className="box"
+        style={{ backgroundColor: color }}
+        onClick={ev => handleClick(ev)}
+      ></div>
     </Fragment>
   );
 };
