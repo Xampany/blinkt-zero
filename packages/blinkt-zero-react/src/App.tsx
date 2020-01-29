@@ -1,13 +1,19 @@
-import React from 'react';
-import './App.css';
-import LedList from './components/LedList/LedList';
+import React from "react";
+import "./App.css";
+import LedList from "./components/LedList/LedList";
+import "bulma/css/bulma.css";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <section className="container">
+      <header className="box">
+        <h1 className="title">
+          Pi Blinkt!
+        </h1>
+      </header>
       <LedList />
-    </div>
+    </section>
   );
-}
+};
 
 export default App;

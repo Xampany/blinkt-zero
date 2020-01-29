@@ -60,32 +60,42 @@ const ColorText: React.FunctionComponent<Props> = ({ color }) => {
 
   return (
     <>
+      <p className="is-size-7">{state.color}</p>
       <form>
-        <select
-          value={state.format}
-          onChange={ev =>
-            dispatch({
-              type: "select",
-              payload: ev.target.value as ColorFormat
-            })
-          }
-        >
-          {["rgb", "hex6", "name"].map(value => (
-            <option key={value} value={value}>
-              {value}
-            </option>
-          ))}
-        </select>
-        <br />
-        <button
-          type="button"
-          disabled={state.format === initialState.format}
-          onClick={() => dispatch({ type: "reset" })}
-        >
-          Reset
-        </button>
+        <div className="field">
+          <div className="control">
+            <div className="select">
+              <select
+                value={state.format}
+                onChange={ev =>
+                  dispatch({
+                    type: "select",
+                    payload: ev.target.value as ColorFormat
+                  })
+                }
+              >
+                {["rgb", "hex6", "name"].map(value => (
+                  <option key={value} value={value}>
+                    {value}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
+        <div className="field">
+          <div className="control">
+            <button
+              className="button is-link is-light"
+              type="button"
+              disabled={state.format === initialState.format}
+              onClick={() => dispatch({ type: "reset" })}
+            >
+              Reset
+            </button>
+          </div>
+        </div>
       </form>
-      <p>{state.color}</p>
     </>
   );
 };
