@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import "./Led.css";
+import styles from "./Led.module.css";
 
 /**
  * Die Eigenschaften, die an die Komponente übergeben werden können
@@ -48,7 +48,7 @@ const Led: React.FunctionComponent<Props> = ({
     <Fragment>
       <p className="is-text-5">Led {index + 1}</p>
       <div
-        className="box"
+        className={styles.box}
         style={{ backgroundColor: color }}
         onClick={ev => handleClick(ev)}
       ></div>
