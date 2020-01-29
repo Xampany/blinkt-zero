@@ -1,6 +1,7 @@
-import React, {  } from "react";
+import React from "react";
 import Led from "../Led/Led";
 import useReadLeds from "../../hooks/readLeds";
+import ColorText from "../ColorText/ColorText";
 
 /**
  * Stellt eine Liste von Leds visuell dar
@@ -22,7 +23,9 @@ const LedList: React.FunctionComponent = () => {
                     index={led.index}
                     color={led.color}
                     onSelect={index => console.log(`I was clicked ${index}`)}
-                  />
+                  >
+                    <ColorText color={led.color} />
+                  </Led>
                 </td>
               ))}
             </tr>

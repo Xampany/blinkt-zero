@@ -17,6 +17,10 @@ type Props = {
    * Reagiert auf das Auswählen der Led
    */
   onSelect?: (index: number) => void;
+  /**
+   * Die Kinder
+   */
+  children?: React.ReactNode;
 };
 
 /**
@@ -26,7 +30,8 @@ type Props = {
 const Led: React.FunctionComponent<Props> = ({
   index,
   color = "goldenrod",
-  onSelect = () => {}
+  onSelect = () => {},
+  children
 }) => {
   /**
    * Reagiert auf einen Klick auf die farbige Box
@@ -47,6 +52,7 @@ const Led: React.FunctionComponent<Props> = ({
         style={{ backgroundColor: color }}
         onClick={ev => handleClick(ev)}
       ></div>
+      {children}
     </Fragment>
   );
 };
