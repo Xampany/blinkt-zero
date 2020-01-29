@@ -11,6 +11,10 @@ const LedList: React.FunctionComponent = () => {
    * Die Liste der Leds
    */
   const [leds, setLeds] = useState<{ index: number; color: string }[]>([]);
+  /**
+   * Loader
+   */
+  const [isLoading, setIsLoading] = useState(true);
 
   /**
    * Liste über REST API laden
@@ -20,6 +24,8 @@ const LedList: React.FunctionComponent = () => {
     const readLeds = async () => {
       const URL = `${API_URL_01}/colors`;
 
+      setIsLoading(true);
+
       const response = await axios.get<string[]>(URL);
 
       const payload = response.data;
@@ -27,25 +33,33 @@ const LedList: React.FunctionComponent = () => {
       return payload.map((color, index) => ({ index, color }));
     };
 
-    readLeds().then(leds => setLeds(leds));
+    readLeds()
+      .then(leds => setLeds(leds))
+      .then(() => setIsLoading(false));
   }, []);
 
   return (
-    <table>
-      <tbody>
-        <tr>
-          {leds.map(led => (
-            <td key={led.index}>
-              <Led
-                index={led.index}
-                color={led.color}
-                onSelect={index => console.log(`I was clicked ${index}`)}
-              />
-            </td>
-          ))}
-        </tr>
-      </tbody>
-    </table>
+    <>
+      {isLoading ? (
+        <p>Bin am Laden am dran am sein...</p>
+      ) : (
+        <table>
+          <tbody>
+            <tr>
+              {leds.map(led => (
+                <td key={led.index}>
+                  <Led
+                    index={led.index}
+                    color={led.color}
+                    onSelect={index => console.log(`I was clicked ${index}`)}
+                  />
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      )}
+    </>
   );
 };
 
