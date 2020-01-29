@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
-import Led from "../Led/Led";
+import { useState, useEffect } from "react";
 import { API_URL_01 } from "../environment";
 import axios from "axios";
 
 /**
- * Stellt eine Liste von Leds visuell dar
+ * Hook zum Laden der Liste der Leds über die REST API
  */
-const LedList: React.FunctionComponent = () => {
+const useReadLeds = () => {
   /**
    * Die Liste der Leds
    */
@@ -38,29 +37,7 @@ const LedList: React.FunctionComponent = () => {
       .then(() => setIsLoading(false));
   }, []);
 
-  return (
-    <>
-      {isLoading ? (
-        <p>Bin am Laden am dran am sein...</p>
-      ) : (
-        <table>
-          <tbody>
-            <tr>
-              {leds.map(led => (
-                <td key={led.index}>
-                  <Led
-                    index={led.index}
-                    color={led.color}
-                    onSelect={index => console.log(`I was clicked ${index}`)}
-                  />
-                </td>
-              ))}
-            </tr>
-          </tbody>
-        </table>
-      )}
-    </>
-  );
+  return [{ leds, isLoading }];
 };
 
-export default LedList;
+export default useReadLeds;
