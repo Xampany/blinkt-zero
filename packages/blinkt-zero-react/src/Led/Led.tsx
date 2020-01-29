@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./Led.css";
 
 /**
@@ -15,8 +15,20 @@ type Props = {
   color?: string;
 };
 
-const Led: React.FunctionComponent<Props> = ({ index, color = "goldenrod" }) => {
-  return <div className="box" style={{backgroundColor: color}}>Led {index}</div>;
+/**
+ * Stellt eine einzelne Led visuell dar.
+ * @param props 
+ */
+const Led: React.FunctionComponent<Props> = ({
+  index,
+  color = "goldenrod"
+}) => {
+  return (
+    <Fragment>
+      <p>Led {index + 1}</p>
+      <div className="box" style={{ backgroundColor: color }}></div>
+    </Fragment>
+  );
 };
 
 export default Led;
