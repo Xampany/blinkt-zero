@@ -46,7 +46,7 @@ const Led: React.FunctionComponent<Props> = ({
 
   return (
     <Fragment>
-      <p>Led {index + 1}</p>
+      <p className="is-text-5">Led {index + 1}</p>
       <div
         className="box"
         style={{ backgroundColor: color }}

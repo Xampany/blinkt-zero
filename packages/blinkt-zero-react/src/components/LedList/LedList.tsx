@@ -14,7 +14,7 @@ const LedList: React.FunctionComponent = () => {
       {isLoading ? (
         <p>Bin am Laden am dran am sein...</p>
       ) : (
-        <table>
+        <table className="table">
           <tbody>
             <tr>
               {leds.map(led => (
