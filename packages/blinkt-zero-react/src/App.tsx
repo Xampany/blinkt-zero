@@ -1,8 +1,10 @@
 import React from "react";
 import { Link, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
+import Dashboard from "./components/Dashboard/Dashboard";
 import LedList from "./components/LedList/LedList";
 import "bulma/css/bulma.css";
+import Detail from "./components/Detail/Detail";
 
 const App: React.FC = () => {
   return (
@@ -17,7 +19,12 @@ const App: React.FC = () => {
           <Redirect to="/leds"></Redirect>
         </Route>
         <Route path="/leds" exact>
-          <LedList />
+          <Dashboard>
+            <LedList />
+          </Dashboard>
+        </Route>
+        <Route path="/leds/:index">
+          <Detail />
         </Route>
       </Switch>
     </section>

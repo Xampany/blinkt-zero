@@ -1,13 +1,16 @@
 import React from "react";
-import Led from "../Led/Led";
+import { Link, useRouteMatch } from "react-router-dom";
 import useReadLeds from "../../hooks/readLeds";
 import ColorText from "../ColorText/ColorText";
+import Led from "../Led/Led";
 
 /**
  * Stellt eine Liste von Leds visuell dar
  */
 const LedList: React.FunctionComponent = () => {
   const [{ leds, isLoading }] = useReadLeds();
+
+  const { url } = useRouteMatch();
 
   return (
     <>
@@ -26,6 +29,7 @@ const LedList: React.FunctionComponent = () => {
                   >
                     <ColorText color={led.color} />
                   </Led>
+                  <Link to={`${url}/${led.index}`}>Details</Link>
                 </td>
               ))}
             </tr>
