@@ -14,10 +14,16 @@ type State = {
   format: ColorFormat;
 };
 
-type Action = {
-  type: "select" | "reset";
-  payload?: ColorFormat;
+type SelectAction = {
+  type: "select";
+  payload: ColorFormat;
 };
+
+type ResetAction = {
+  type: "reset";
+};
+
+type Action = SelectAction | ResetAction;
 
 /**
  * Stellt eine Farbe als Text in einem wählbaren Format dar
@@ -29,7 +35,7 @@ const ColorText: React.FunctionComponent<Props> = ({ color }) => {
     format: "rgb"
   };
 
-  const [state, dispatch] = useReducer((state: State, action: Action) => {
+  const [state, dispatch] = useReducer((state: State, action: Action): State => {
     switch (action.type) {
       case "select":
         const format = action.payload as ColorFormat;
@@ -42,8 +48,6 @@ const ColorText: React.FunctionComponent<Props> = ({ color }) => {
         return {
           ...initialState
         };
-      default:
-        throw new Error("Oops");
     }
   }, initialState);
 
