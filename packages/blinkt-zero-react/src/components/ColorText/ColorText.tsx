@@ -33,7 +33,7 @@ const ColorText: React.FunctionComponent<Props> = ({ color }) => {
   const initialState: State = {
     color,
     format: "rgb"
-  };
+  } as const;
 
   const [state, dispatch] = useReducer((state: State, action: Action): State => {
     switch (action.type) {
@@ -50,6 +50,8 @@ const ColorText: React.FunctionComponent<Props> = ({ color }) => {
         };
     }
   }, initialState);
+
+  const isDisabled = () => state.format === initialState.format;
 
   return (
     <>
@@ -69,7 +71,7 @@ const ColorText: React.FunctionComponent<Props> = ({ color }) => {
             <button
               className="button is-link is-light"
               type="button"
-              disabled={state.format === initialState.format}
+              disabled={isDisabled()}
               onClick={() => dispatch({ type: "reset" })}
             >
               Reset
