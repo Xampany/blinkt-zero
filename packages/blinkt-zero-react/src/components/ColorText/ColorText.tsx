@@ -1,6 +1,8 @@
 import React, { useReducer } from "react";
 import tinycolor from "tinycolor2";
-import FormatSelect, { ColorFormat } from "../FormatSelect/FormatSelect";
+import { FormatAction } from "../../store/format/actions";
+import { ColorFormat, RESET_FORMAT, SELECT_FORMAT } from "../../store/format/types";
+import FormatSelect from "../FormatSelect/FormatSelect";
 
 type Props = {
   /**
@@ -14,17 +16,6 @@ type State = {
   format: ColorFormat;
 };
 
-type SelectAction = {
-  type: "select";
-  payload: ColorFormat;
-};
-
-type ResetAction = {
-  type: "reset";
-};
-
-type Action = SelectAction | ResetAction;
-
 /**
  * Stellt eine Farbe als Text in einem wählbaren Format dar
  * @param param0
@@ -35,16 +26,16 @@ const ColorText: React.FunctionComponent<Props> = ({ color }) => {
     format: "rgb"
   } as const;
 
-  const [state, dispatch] = useReducer((state: State, action: Action): State => {
+  const [state, dispatch] = useReducer((state: State, action: FormatAction): State => {
     switch (action.type) {
-      case "select":
+      case SELECT_FORMAT:
         const format = action.payload as ColorFormat;
         const next: State = {
           color: tinycolor(state.color).toString(format),
           format
         };
         return next;
-      case "reset":
+      case RESET_FORMAT:
         return {
           ...initialState
         };
@@ -61,7 +52,7 @@ const ColorText: React.FunctionComponent<Props> = ({ color }) => {
           format={state.format}
           onSelect={payload =>
             dispatch({
-              type: "select",
+              type: SELECT_FORMAT,
               payload
             })
           }
@@ -72,7 +63,7 @@ const ColorText: React.FunctionComponent<Props> = ({ color }) => {
               className="button is-link is-light"
               type="button"
               disabled={isDisabled()}
-              onClick={() => dispatch({ type: "reset" })}
+              onClick={() => dispatch({ type: RESET_FORMAT })}
             >
               Reset
             </button>

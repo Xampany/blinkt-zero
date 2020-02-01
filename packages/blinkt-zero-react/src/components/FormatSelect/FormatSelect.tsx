@@ -1,33 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-
-/**
- * Die Liste möglicher Farbformate
- */
-export enum ColorFormats {
-  "rgb",
-  "prgb",
-  "hex",
-  "hex6",
-  "hex3",
-  "hex4",
-  "hex8",
-  "name",
-  "hsl",
-  "hsv"
-}
-
-/**
- * Das erlaubte Farbformat
- */
-export type ColorFormat = keyof typeof ColorFormats;
+import { ColorFormat, ColorFormats } from "../../store/format/types";
 
 type Props = {
   format?: ColorFormat;
   onSelect?: (format: ColorFormat) => void;
 };
 
-const FormatSelect: React.FC<Props> = ({ format = ColorFormats.rgb, onSelect = () => void 0 }) => {
+const FormatSelect: React.FC<Props> = ({ format = "rgb", onSelect = () => void 0 }) => {
   /**
    * Alle Werte des ```enum```, die nicht numerisch sind
    */
