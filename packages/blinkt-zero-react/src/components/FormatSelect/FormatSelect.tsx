@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 
 /**
  * Die Liste möglicher Farbformate
@@ -56,4 +57,4 @@ const FormatSelect: React.FC<Props> = ({ format = ColorFormats.rgb, onSelect = (
   );
 };
 
-export default FormatSelect;
+export default connect()(FormatSelect);
