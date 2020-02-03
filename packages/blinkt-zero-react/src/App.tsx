@@ -1,11 +1,11 @@
+import "bulma/css/bulma.css";
 import React from "react";
 import { Link, Redirect, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Dashboard from "./components/Dashboard/Dashboard";
-import LedList from "./components/LedList/LedList";
-import "bulma/css/bulma.css";
 import Detail from "./components/Detail/Detail";
-import FormatSelect from "./components/FormatSelect/FormatSelect";
+import GlobalFormatSelect from "./components/FormatSelect/GlobalFormatSelect";
+import LedList from "./components/LedList/LedList";
 
 const App: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ const App: React.FC = () => {
           </div>
           <div className="column">
             <div className="is-pulled-right">
-              <FormatSelect />
+              <GlobalFormatSelect />
             </div>
           </div>
         </div>

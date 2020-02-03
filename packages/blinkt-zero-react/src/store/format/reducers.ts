@@ -28,5 +28,7 @@ export const formatReducer = (
       return {
         ...initialState
       };
+    default:
+      return state;
   }
 };

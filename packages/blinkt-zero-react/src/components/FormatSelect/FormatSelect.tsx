@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import { ColorFormat, ColorFormats } from "../../store/format/types";
 
 type Props = {
@@ -7,7 +6,10 @@ type Props = {
   onSelect?: (format: ColorFormat) => void;
 };
 
-const FormatSelect: React.FC<Props> = ({ format = "rgb", onSelect = () => void 0 }) => {
+const FormatSelect: React.FC<Props> = ({
+  format = "rgb",
+  onSelect = () => void 0
+}) => {
   /**
    * Alle Werte des ```enum```, die nicht numerisch sind
    */
@@ -37,4 +39,4 @@ const FormatSelect: React.FC<Props> = ({ format = "rgb", onSelect = () => void 0
   );
 };
 
-export default connect()(FormatSelect);
+export default FormatSelect;
