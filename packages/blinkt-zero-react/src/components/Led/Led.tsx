@@ -17,17 +17,13 @@ type Props = {
    * Reagiert auf das Auswählen der Led
    */
   onSelect?: (index: number) => void;
-  /**
-   * Die Kinder
-   */
-  children?: React.ReactNode;
 };
 
 /**
  * Stellt eine einzelne Led visuell dar.
  * @param props
  */
-const Led: React.FunctionComponent<Props> = ({
+const Led: React.FC<Props> = ({
   index,
   color = "goldenrod",
   onSelect = () => {},
