@@ -21,7 +21,7 @@
     "@angular/cli": "8.3.19",
     "@nestjs/cli": "6.8.1",
     "@types/node": "12.12.12",
-    "husky": "3.0.5",
+    "husky": "3.1.0",
     "oao": "1.7.0",
     "prettier": "1.19.1",
     "tslint": "5.18.0",
