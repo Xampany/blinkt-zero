@@ -42,7 +42,7 @@
     "@types/node": "12.12.12",
     "@types/supertest": "2.0.8",
     "@types/tinycolor2": "1.4.2",
-    "jest": "25.1.0",
+    "jest": "25.5.3",
     "nodemon": "1.19.0",
     "prettier": "1.19.1",
     "supertest": "4.0.2",
