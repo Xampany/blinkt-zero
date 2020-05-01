@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Put } from "@nestjs/common";
-import { ApiOperation, ApiUseTags } from "@nestjs/swagger";
+import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { BlinktService } from "../blinkt/blinkt.service";
 import { UpdateStripDto } from "./dto/update-strip-dto";
 
 @Controller("strip")
-@ApiUseTags("strip")
+@ApiTags("strip")
 export class StripController {
   /**
    *
@@ -19,7 +19,7 @@ export class StripController {
    */
   @Put()
   @ApiOperation({
-    title: "Lässt jede einzelne Farbe kurz Blinken",
+    description: "Lässt jede einzelne Farbe kurz Blinken",
   })
   updateStrip(@Body() payload: UpdateStripDto) {
     const { duration, repeat } = payload;
@@ -31,7 +31,7 @@ export class StripController {
    */
   @Delete()
   @ApiOperation({
-    title: "Stoppt das Blinken",
+    description: "Stoppt das Blinken",
   })
   deleteStrip() {
     return this._blinkt.stopStrip();

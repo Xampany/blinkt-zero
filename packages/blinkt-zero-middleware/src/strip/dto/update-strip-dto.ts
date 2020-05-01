@@ -1,16 +1,16 @@
-import { ApiModelProperty } from "@nestjs/swagger";
+import { ApiProperty } from "@nestjs/swagger";
 
 import { IsNumber } from "class-validator";
 
 export class UpdateStripDto {
-  @ApiModelProperty({
+  @ApiProperty({
     example: "1000",
     description: "Die Dauer [ms]",
   })
   @IsNumber()
   readonly duration!: number;
 
-  @ApiModelProperty({
+  @ApiProperty({
     example: "1",
     description: "Die Anzahl der Wiederholungen",
   })

@@ -1,11 +1,11 @@
 import { Body, Controller, Get, Param, Put } from "@nestjs/common";
-import { ApiOperation, ApiUseTags } from "@nestjs/swagger";
+import { ApiOperation, ApiTags } from "@nestjs/swagger";
 import { Observable } from "rxjs";
 import { BlinktService } from "../blinkt/blinkt.service";
 import { UpdateColorDto } from "./dto/update-color-dto";
 
 @Controller("colors")
-@ApiUseTags("colors")
+@ApiTags("colors")
 export class ColorsController {
   /**
    *
@@ -19,7 +19,7 @@ export class ColorsController {
    */
   @Get()
   @ApiOperation({
-    title: "Liefert die Liste der Farben",
+    description: "Liefert die Liste der Farben",
   })
   readColors(): Observable<string[]> {
     return this._blinkt.getColors();
@@ -31,7 +31,7 @@ export class ColorsController {
    */
   @Get(":index")
   @ApiOperation({
-    title: "Liefert die Farbe für den Index",
+    description: "Liefert die Farbe für den Index",
   })
   readColor(@Param("index") index: number): Observable<string> {
     return this._blinkt.getColor(index);
@@ -43,7 +43,7 @@ export class ColorsController {
    */
   @Put()
   @ApiOperation({
-    title: "Aktualisiert alle Farben",
+    description: "Aktualisiert alle Farben",
   })
   updateColors(@Body() payload: UpdateColorDto) {
     return this._blinkt.setColors(payload.color);
@@ -55,7 +55,7 @@ export class ColorsController {
    */
   @Put(":index")
   @ApiOperation({
-    title: "Aktualisiert die Farbe für den Index",
+    description: "Aktualisiert die Farbe für den Index",
   })
   updateColor(@Param("index") index: number, @Body() payload: UpdateColorDto) {
     return this._blinkt.setColor(index, payload.color);

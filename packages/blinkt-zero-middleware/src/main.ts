@@ -18,11 +18,10 @@ async function bootstrap() {
   const config = new DocumentBuilder()
     .setTitle("Blinkt! Raspberry Pi Zero")
     .setDescription(
-      "REST API zur Interaktion zwischen (Angular) UI und Blinkt!",
+      "REST API zur Interaktion zwischen (Angular / React) UI und Blinkt!",
     )
     .setVersion("1.0")
     .setBasePath(prefix)
-    .setSchemes("https", "http")
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("docs", app, document);

@@ -1,15 +1,15 @@
-import { ApiModelProperty } from "@nestjs/swagger";
+import { ApiProperty } from "@nestjs/swagger";
 import { IsNumber } from "class-validator";
 
 export class UpdateFlashDto {
-  @ApiModelProperty({
+  @ApiProperty({
     example: "1",
     description: "Die Frequenz [Hz]",
   })
   @IsNumber()
   readonly frequency!: number;
 
-  @ApiModelProperty({
+  @ApiProperty({
     example: "10000",
     description: "Die Dauer [ms]",
   })
