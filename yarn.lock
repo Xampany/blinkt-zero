@@ -11002,10 +11002,10 @@ nwsapi@^2.0.7, nwsapi@^2.1.3, nwsapi@^2.2.0:
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.0.tgz#204879a9e3d068ff2a55139c2c772780681a38b7"
   integrity sha512-h2AatdwYH+JHiZpv7pt/gSX1XoRGb7L/qSIeuqA6GwYoF9w1vP1cw42TO0aI2pNyshRK5893hNSl+1//vHK7hQ==
 
-oao@1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/oao/-/oao-1.7.0.tgz#58e09bedbed131c27970bf38356e2770d058cdce"
-  integrity sha512-zf5BAtfVBs7yzs+lC94tKR70icOXkpVI0rj3oh1N6DuqGree6Hdy0dwrgWcerzcd3X7riGgBSqMM9tfcXJM2vQ==
+oao@1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/oao/-/oao-1.8.0.tgz#b69e7f230de9916c6a12fe889434b539dd681475"
+  integrity sha512-xOwcL20Db8PAuT99SVyPP4iZ89mX0/iQy+pAeBEtkV9ESiwgWxn+36RJu/bl9iptYKIBbClFqcL24rZnTtOC6w==
   dependencies:
     commander "2.19.0"
     execa "0.6.3"
