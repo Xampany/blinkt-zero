@@ -23,8 +23,6 @@ const useReadLeds = () => {
     const readLeds = async () => {
       const URL = `${API_URL_01}/colors`;
 
-      setIsLoading(true);
-
       const response = await axios.get<string[]>(URL);
 
       const payload = response.data;
@@ -32,6 +30,8 @@ const useReadLeds = () => {
       return payload.map((color, index) => ({ index, color }));
     };
 
+    setIsLoading(true);
+    
     readLeds()
       .then(leds => setLeds(leds))
       .then(() => setIsLoading(false));

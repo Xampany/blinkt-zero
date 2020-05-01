@@ -2,8 +2,8 @@ import React, { useReducer } from "react";
 import tinycolor from "tinycolor2";
 import {
   FormatAction,
-  selectFormat,
-  resetFormat
+  resetFormat,
+  selectFormat
 } from "../../store/format/actions";
 import {
   ColorFormat,
@@ -19,8 +19,7 @@ type Props = {
   color: string;
 };
 
-type State = {
-  color: string;
+type State = Props & {
   format: ColorFormat;
 };
 
