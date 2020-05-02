@@ -1,19 +1,25 @@
 import { NestFactory } from "@nestjs/core";
+import {
+  FastifyAdapter,
+  NestFastifyApplication,
+} from "@nestjs/platform-fastify";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
-import helmet = require("helmet");
+import helmet from "helmet";
+import nocache from "nocache";
 import { AppModule } from "./app.module";
 
 async function bootstrap() {
   const prefix = "api";
-  const app = await NestFactory.create(AppModule, {
-    cors: true,
-  });
-  app.setGlobalPrefix(prefix);
-  app.use(
-    helmet({
-      noCache: true,
-    }),
+  const app = await NestFactory.create<NestFastifyApplication>(
+    AppModule,
+    new FastifyAdapter(),
+    {
+      cors: true,
+    },
   );
+  app.setGlobalPrefix(prefix);
+  app.use(helmet());
+  app.use(nocache());
 
   const config = new DocumentBuilder()
     .setTitle("Blinkt! Raspberry Pi Zero")
@@ -21,7 +27,6 @@ async function bootstrap() {
       "REST API zur Interaktion zwischen (Angular / React) UI und Blinkt!",
     )
     .setVersion("1.0")
-    .setBasePath(prefix)
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("docs", app, document);
