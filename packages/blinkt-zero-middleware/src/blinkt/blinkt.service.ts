@@ -4,12 +4,17 @@ import { interval, Observable, of, Subject } from "rxjs";
 import { map, take, takeUntil } from "rxjs/operators";
 import tinycolor from "tinycolor2";
 
+/**
+ * Ein schwarzes Pixel
+ */
+type Black = "black";
+
 @Injectable()
 export class BlinktService {
-  private static DAT: number = 23;
-  private static CLK: number = 24;
-  private static PIXELS: number = 8;
-  private static BLACK: string[] = Array(BlinktService.PIXELS).fill("black");
+  private static readonly DAT: number = 23;
+  private static readonly CLK: number = 24;
+  private static readonly PIXELS: number = 8;
+  private static readonly BLACK: Black[] = Array(BlinktService.PIXELS).fill("black");
 
   private colors = Array.from(Array(BlinktService.PIXELS), () =>
     tinycolor.random().toRgbString(),
