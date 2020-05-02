@@ -1899,7 +1899,7 @@
     tslib "1.11.1"
     uuid "7.0.3"
 
-"@nestjs/graphql@^7.3.5":
+"@nestjs/graphql@7.3.5":
   version "7.3.5"
   resolved "https://registry.yarnpkg.com/@nestjs/graphql/-/graphql-7.3.5.tgz#1d344cc05ec608bc0c1872c3960b5eee71edae4d"
   integrity sha512-7BZPF7pxusYLaIYoe1y1Kz6F8qnWPWm/6qx6XXTiMn+RePyQT1w8sBYrWpVc5T4Y/v5odz1zqRK+E4HGwPHAWg==
@@ -1923,7 +1923,7 @@
   resolved "https://registry.yarnpkg.com/@nestjs/mapped-types/-/mapped-types-0.0.3.tgz#7b50206935452e74a270ed9a07ad05a6305b0b42"
   integrity sha512-PKxWOVaMyvj9/82afLpMZ/+Pb5JacCURRP/FY/tCDtsoS+MABeQGj2oqbtH4uQUiL4n+H0IigvQGHWQ1zPPknA==
 
-"@nestjs/platform-fastify@^7.0.9":
+"@nestjs/platform-fastify@7.0.9":
   version "7.0.9"
   resolved "https://registry.yarnpkg.com/@nestjs/platform-fastify/-/platform-fastify-7.0.9.tgz#aecbad4fe3f1dc218575dbd47f1578a7c2550d74"
   integrity sha512-cH7ccXhu/O9ohPA6fBIo9NxMppgb7BrI7TMN1QizvquUS1UqGgNaxaQ2+fg1YUxHlWhOHf0tMpz9+r0XkXUbeA==
@@ -3553,7 +3553,7 @@ apollo-server-errors@^2.4.1:
   resolved "https://registry.yarnpkg.com/apollo-server-errors/-/apollo-server-errors-2.4.1.tgz#16ad49de6c9134bfb2b7dede9842e73bb239dbe2"
   integrity sha512-7oEd6pUxqyWYUbQ9TA8tM0NU/3aGtXSEibo6+txUkuHe7QaxfZ2wHRp+pfT1LC1K3RXYjKj61/C2xEO19s3Kdg==
 
-apollo-server-fastify@^2.12.0:
+apollo-server-fastify@2.12.0:
   version "2.12.0"
   resolved "https://registry.yarnpkg.com/apollo-server-fastify/-/apollo-server-fastify-2.12.0.tgz#eff5b6432231194106a0932d59978d45bb76a044"
   integrity sha512-Fzy5XXgiMhxpzeMv0HyHDObVHu/ZqFkC2sWVpaQ+cG/2fntgYfAcr0CNXg8NSxjDKv6pqgSExZPn/q1alykKgw==
@@ -7228,7 +7228,7 @@ fastify-static@^2.5.1:
     readable-stream "^3.4.0"
     send "^0.16.0"
 
-fastify-swagger@^2.5.1:
+fastify-swagger@2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/fastify-swagger/-/fastify-swagger-2.5.1.tgz#bd3fa7c30b21fb9055935c3f3088b5b84855f883"
   integrity sha512-KhDu1Bo45eCm8jk9uyenL1OsGyf2I6swnk1xMT5tZmCB88T5BLu5+3wOzsH5AR/suCZ9n/TeeRFXyTEJu8Oj2w==
@@ -7957,7 +7957,7 @@ graphql-tag@^2.9.2:
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.10.3.tgz#ea1baba5eb8fc6339e4c4cf049dabe522b0edf03"
   integrity sha512-4FOv3ZKfA4WdOKJeHdz6B3F/vxBLSgmBcGeAFPf4n1F64ltJUvOOerNj0rsJxONQGdhUMynQIvd6LzB+1J5oKA==
 
-graphql-tools@5.0.0, graphql-tools@^5.0.0:
+graphql-tools@5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/graphql-tools/-/graphql-tools-5.0.0.tgz#67281c834a0e29f458adba8018f424816fa627e9"
   integrity sha512-5zn3vtn//382b7G3Wzz3d5q/sh+f7tVrnxeuhTMTJ7pWJijNqLxH7VEzv8VwXCq19zAzHYEosFHfXiK7qzvk7w==
@@ -7992,7 +7992,7 @@ graphql-upload@^8.0.2:
     http-errors "^1.7.3"
     object-path "^0.11.4"
 
-graphql@^14.0.0, graphql@^14.5.3:
+graphql@14.6.0, graphql@^14.5.3:
   version "14.6.0"
   resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.6.0.tgz#57822297111e874ea12f5cd4419616930cd83e49"
   integrity sha512-VKzfvHEKybTKjQVpTFrA5yUq2S9ihcZvfJAtsDBBCuV6wauPu1xl/f9ehgVf0FcEJJs4vz6ysb/ZMkGigQZseg==
@@ -11710,7 +11710,7 @@ no-case@^3.0.3:
     lower-case "^2.0.1"
     tslib "^1.10.0"
 
-nocache@2.1.0, nocache@^2.1.0:
+nocache@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/nocache/-/nocache-2.1.0.tgz#120c9ffec43b5729b1d5de88cd71aa75a0ba491f"
   integrity sha512-0L9FvHG3nfnnmaEQPjT9xhfN4ISk0A8/2j4M37Np4mcDesJjHgEUfgPhdCyZuFI954tjokaIj/A3NdpFNdEh4Q==
