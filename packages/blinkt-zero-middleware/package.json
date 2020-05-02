@@ -30,6 +30,7 @@
     "graphql": "^15.0.0",
     "graphql-tools": "^5.0.0",
     "helmet": "3.22.0",
+    "nocache": "^2.1.0",
     "onoff": "6.0.0",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",

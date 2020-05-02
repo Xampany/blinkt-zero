@@ -1,6 +1,7 @@
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
-import helmet = require("helmet");
+import helmet from "helmet";
+import nocache from "nocache";
 import { AppModule } from "./app.module";
 
 async function bootstrap() {
@@ -9,11 +10,8 @@ async function bootstrap() {
     cors: true,
   });
   app.setGlobalPrefix(prefix);
-  app.use(
-    helmet({
-      noCache: true,
-    }),
-  );
+  app.use(nocache());
+  app.use(helmet());
 
   const config = new DocumentBuilder()
     .setTitle("Blinkt! Raspberry Pi Zero")
