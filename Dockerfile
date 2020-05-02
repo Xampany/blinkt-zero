@@ -1,4 +1,4 @@
-FROM balenalib/rpi-alpine-node:latest
+FROM balenalib/rpi-alpine-node:12
 
 RUN apk add yarn python make g++
 
