@@ -19,7 +19,6 @@ async function bootstrap() {
       "REST API zur Interaktion zwischen (Angular / React) UI und Blinkt!",
     )
     .setVersion("1.0")
-    .setBasePath(prefix)
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("docs", app, document);
