@@ -13,4 +13,8 @@ export class Led {
     description: "Die Farbe als valider CSS String",
   })
   color!: string;
+
+  static toLeds(colors: string[]): Led[] {
+    return colors.map((color, index) => ({ index, color }));
+  }
 }

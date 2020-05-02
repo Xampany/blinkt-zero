@@ -1,4 +1,4 @@
-import { Query, Resolver } from "@nestjs/graphql";
+import { Args, Mutation, Query, Resolver } from "@nestjs/graphql";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { BlinktService } from "../blinkt/blinkt.service";
@@ -10,7 +10,7 @@ export class ColorsResolver {
   constructor(private readonly _blinkt: BlinktService) {}
 
   @Query(() => [String], { description: "Liefert die Liste der Farben" })
-  readColors() {
+  readColors(): Observable<string[]> {
     return this._blinkt.getColors();
   }
 
@@ -18,6 +18,22 @@ export class ColorsResolver {
   readLeds(): Observable<Led[]> {
     return this._blinkt
       .getColors()
-      .pipe(map((colors) => colors.map((color, index) => ({ index, color }))));
+      .pipe(map(Led.toLeds));
+  }
+
+  @Mutation(() => [Led], { description: "Aktualisiert alle Farben" })
+  updateLeds(
+    @Args({
+      name: "color",
+      description: "Die Farbe als CSS String",
+      type: () => String,
+    })
+    color: string,
+  ): Observable<Led[]> {
+    return (
+      this._blinkt
+        .setColors(color)
+        .pipe(map(Led.toLeds))
+    );
   }
 }
