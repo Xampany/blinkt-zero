@@ -10,6 +10,9 @@ import { StripModule } from "./strip/strip.module";
 
 @Module({
   imports: [
+    GraphQLModule.forRoot({
+      autoSchemaFile: true
+    }),
     BlinktModule,
     ColorsModule,
     FlashModule,
