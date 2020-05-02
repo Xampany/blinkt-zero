@@ -1,4 +1,8 @@
 import { NestFactory } from "@nestjs/core";
+import {
+  FastifyAdapter,
+  NestFastifyApplication,
+} from "@nestjs/platform-fastify";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import helmet from "helmet";
 import nocache from "nocache";
@@ -6,12 +10,16 @@ import { AppModule } from "./app.module";
 
 async function bootstrap() {
   const prefix = "api";
-  const app = await NestFactory.create(AppModule, {
-    cors: true,
-  });
+  const app = await NestFactory.create<NestFastifyApplication>(
+    AppModule,
+    new FastifyAdapter(),
+    {
+      cors: true,
+    },
+  );
   app.setGlobalPrefix(prefix);
-  app.use(nocache());
   app.use(helmet());
+  app.use(nocache());
 
   const config = new DocumentBuilder()
     .setTitle("Blinkt! Raspberry Pi Zero")
