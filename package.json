@@ -21,6 +21,7 @@
     "@angular/cli": "9.1.4",
     "@nestjs/cli": "7.1.4",
     "@types/node": "12.12.37",
+    "balena-cli": "^11.32.11",
     "husky": "4.2.5",
     "oao": "1.8.0",
     "prettier": "2.0.5",
