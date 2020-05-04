@@ -1,5 +1,6 @@
 import { Module } from "@nestjs/common";
 import { GraphQLModule } from "@nestjs/graphql";
+import { join } from "path";
 import { AppController } from "./app.controller";
 import { AppService } from "./app.service";
 import { BlinktModule } from "./blinkt/blinkt.module";
@@ -11,7 +12,7 @@ import { StripModule } from "./strip/strip.module";
 @Module({
   imports: [
     GraphQLModule.forRoot({
-      autoSchemaFile: true
+      autoSchemaFile: join(process.cwd(), "src/schema.gql"),
     }),
     BlinktModule,
     ColorsModule,

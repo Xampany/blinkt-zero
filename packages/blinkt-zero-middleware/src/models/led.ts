@@ -1,10 +1,10 @@
-import { Field, ObjectType } from "@nestjs/graphql";
+import { Field, Int, ObjectType } from "@nestjs/graphql";
 
 @ObjectType({
   description: "Eine einzelne Led",
 })
 export class Led {
-  @Field({
+  @Field(() => Int, {
     description: "Der 0-basierte Index",
   })
   index!: number;

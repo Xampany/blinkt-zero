@@ -1,0 +1,37 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Eine einzelne Led"""
+type Led {
+  """Der 0-basierte Index"""
+  index: Int!
+
+  """Die Farbe als valider CSS String"""
+  color: String!
+}
+
+type Mutation {
+  """Aktualisiert alle Farben"""
+  updateLeds(
+    """Die Farbe als CSS String"""
+    color: String!
+  ): [Led!]!
+
+  """Aktualisiert die Farbe für den Index"""
+  updateLed(
+    """Die Farbe als CSS String"""
+    color: String!
+
+    """Der 0-basierte Index"""
+    index: Int!
+  ): Led!
+}
+
+type Query {
+  """Liefert die Liste der Farben"""
+  readColors: [String!]!
+
+  """Liefert die Liste der Leds"""
+  readLeds: [Led!]!
+}
