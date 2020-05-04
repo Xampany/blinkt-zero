@@ -19,6 +19,20 @@ export class ColorsResolver {
     return this._blinkt.getColors().pipe(map(Led.toLeds));
   }
 
+  @Query(() => Led, { description: "Liefert die Led zu dem übergebenen Index" })
+  readLed(
+    @Args({
+      name: "index",
+      description: "Der 0-basierte Index",
+      type: () => Int,
+    })
+    index: number,
+  ): Observable<Led> {
+    return this._blinkt
+      .getColor(index)
+      .pipe(map((color) => ({ index, color })));
+  }
+
   @Mutation(() => [Led], { description: "Aktualisiert alle Farben" })
   updateLeds(
     @Args({
