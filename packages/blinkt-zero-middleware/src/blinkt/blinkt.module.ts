@@ -1,12 +1,11 @@
 import { Module } from "@nestjs/common";
-import { BlinktStubService } from "./blinkt-stub/blinkt-stub.service";
 import { BlinktService } from "./blinkt.service";
 
 @Module({
   providers: [
     {
       provide: BlinktService,
-      useClass: BlinktStubService,
+      useClass: BlinktService,
     },
   ],
   exports: [BlinktService],
