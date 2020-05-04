@@ -34,4 +34,10 @@ type Query {
 
   """Liefert die Liste der Leds"""
   readLeds: [Led!]!
+
+  """Liefert die Led zu dem übergebenen Index"""
+  readLed(
+    """Der 0-basierte Index"""
+    index: Int!
+  ): Led!
 }
