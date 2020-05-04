@@ -1,7 +1,6 @@
-import { Resolver, Mutation, Args } from "@nestjs/graphql";
-import { Observable } from "rxjs";
-import { FlashInput } from "./models/flash";
+import { Args, Mutation, Resolver } from "@nestjs/graphql";
 import { BlinktService } from "../blinkt/blinkt.service";
+import { FlashInput } from "./models/flash";
 
 @Resolver("Flash")
 export class FlashResolver {
