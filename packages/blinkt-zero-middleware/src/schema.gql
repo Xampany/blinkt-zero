@@ -2,6 +2,15 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+"""Die Parameter für das Blinken"""
+input FlashInput {
+  """Die Frequenz [Hz]"""
+  frequency: Float = 1
+
+  """Die Dauer [ms]"""
+  duration: Int = 1000
+}
+
 """Eine einzelne Led"""
 type Led {
   """Der 0-basierte Index"""
@@ -26,6 +35,9 @@ type Mutation {
     """Der 0-basierte Index"""
     index: Int!
   ): Led!
+
+  """Bringt alle Farben zum Blinken"""
+  startFlash(options: FlashInput!): Boolean!
 }
 
 type Query {

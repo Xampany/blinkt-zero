@@ -10,10 +10,7 @@ export class BlinktStubService
     Pick<
       BlinktService,
       // tslint:disable-next-line: max-union-size
-      | "getColors"
-      | "getColor"
-      | "setColors"
-      | "setColor"
+      "getColors" | "getColor" | "setColors" | "setColor" | "startFlash"
     > {
   private colors = Array.from(Array(8), () => tinycolor.random().toRgbString());
   getColors(): Observable<string[]> {
@@ -29,5 +26,8 @@ export class BlinktStubService
   setColor(index: number, color: string): Observable<string> {
     this.colors[index] = color;
     return this.getColor(index);
+  }
+  startFlash(): boolean {
+    return true;
   }
 }
