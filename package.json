@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@angular/cli": "9.1.4",
-    "@nestjs/cli": "7.1.4",
+    "@nestjs/cli": "7.1.5",
     "@types/node": "12.12.37",
     "husky": "4.2.5",
     "oao": "1.8.0",
