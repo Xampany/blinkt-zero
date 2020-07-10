@@ -52,5 +52,8 @@
     "ts-node": "8.10.1",
     "tslint": "5.20.1",
     "typescript": "3.9.6"
-  }
+  },
+  "nohoist": [
+    "@angular/**"
+  ]
 }
