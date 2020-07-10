@@ -18,13 +18,13 @@
     "typescript": "3.9.6"
   },
   "devDependencies": {
-    "@angular/cli": "9.1.11",
+    "@angular/cli": "^10.0.2",
     "@nestjs/cli": "7.4.1",
     "@types/node": "12.12.50",
     "husky": "4.2.5",
     "oao": "1.10.0",
     "prettier": "2.0.5",
-    "tslint": "5.20.1",
+    "tslint": "~6.1.0",
     "tslint-sonarts": "1.9.0"
   }
 }
