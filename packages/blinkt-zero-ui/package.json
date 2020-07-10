@@ -54,6 +54,7 @@
     "typescript": "3.9.6"
   },
   "nohoist": [
-    "@angular/**"
+    "@angular/*",
+    "rxjs"
   ]
 }
