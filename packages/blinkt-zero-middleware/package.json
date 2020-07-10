@@ -21,10 +21,10 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/common": "7.0.13",
-    "@nestjs/core": "7.0.13",
+    "@nestjs/common": "7.3.2",
+    "@nestjs/core": "7.3.2",
     "@nestjs/graphql": "7.3.9",
-    "@nestjs/platform-fastify": "7.0.13",
+    "@nestjs/platform-fastify": "7.3.2",
     "@nestjs/swagger": "4.5.7",
     "apollo-server-fastify": "2.14.2",
     "class-validator": "0.12.2",
@@ -40,7 +40,7 @@
     "tinycolor2": "1.4.1"
   },
   "devDependencies": {
-    "@nestjs/testing": "7.0.13",
+    "@nestjs/testing": "7.3.2",
     "@types/helmet": "0.0.46",
     "@types/jest": "25.2.3",
     "@types/node": "12.12.50",
