@@ -18,7 +18,7 @@
     "typescript": "3.9.6"
   },
   "devDependencies": {
-    "@angular/cli": "10.0.2",
+    "@angular/cli": "10.0.4",
     "@nestjs/cli": "7.4.1",
     "@types/node": "12.12.50",
     "husky": "4.2.5",
