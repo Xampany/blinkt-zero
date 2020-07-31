@@ -36,7 +36,7 @@
     "onoff": "6.0.0",
     "reflect-metadata": "0.1.13",
     "rimraf": "3.0.2",
-    "rxjs": "6.6.0",
+    "rxjs": "6.6.2",
     "tinycolor2": "1.4.1"
   },
   "devDependencies": {
