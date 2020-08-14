@@ -7513,6 +7513,13 @@ fastify-plugin@^2.0.0:
   dependencies:
     semver "^7.3.2"
 
+fastify-plugin@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/fastify-plugin/-/fastify-plugin-2.3.0.tgz#ef09432fd099e7cbd45f9612efc22da1da213fea"
+  integrity sha512-FOfgK3ORSXMl9AbXmkADH2gZ4qiegcYuJfDxKNlL0jQKLndbXYoBjifinYkSi2mTewDwu/LMlAGe4PVyhLpSXA==
+  dependencies:
+    semver "^7.3.2"
+
 fastify-static@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/fastify-static/-/fastify-static-3.1.0.tgz#c8d389ddf56dff9df59bc2952a219a22ae95045e"
@@ -7523,13 +7530,13 @@ fastify-static@^3.0.0:
     readable-stream "^3.4.0"
     send "^0.17.1"
 
-fastify-swagger@3.1.2:
-  version "3.1.2"
-  resolved "https://registry.yarnpkg.com/fastify-swagger/-/fastify-swagger-3.1.2.tgz#6194f57d176e16dee22753bd424c36f37bde9470"
-  integrity sha512-o5n9ER2ZRkzvSTEufEU/LTSzOjTEzVkFAOBcgC9QySMjdlF8UCSKFjlr56isIVHv4gRm9oBBf+pMoZbnwOxXkw==
+fastify-swagger@3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/fastify-swagger/-/fastify-swagger-3.3.0.tgz#b848b51cb4278a81180b817187880405a09deb28"
+  integrity sha512-gqrBtbPVhhnEd4D0HtpQ4sEgeHT6Kxo54WQjwFsjoiAsXHUJaE0lz2Z0zlMY8IL+Zca4jRmoiubfM4fYdxvaFA==
   dependencies:
     "@types/swagger-schema-official" "^2.0.20"
-    fastify-plugin "^2.0.0"
+    fastify-plugin "^2.3.0"
     fastify-static "^3.0.0"
     js-yaml "^3.14.0"
     json-schema-resolver "^1.2.0"
