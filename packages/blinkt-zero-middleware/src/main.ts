@@ -18,7 +18,9 @@ async function bootstrap() {
     },
   );
   app.setGlobalPrefix(prefix);
-  app.use(helmet());
+  app.use(helmet({
+    contentSecurityPolicy:false
+  }));
   app.use(nocache());
 
   const config = new DocumentBuilder()
