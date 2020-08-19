@@ -30,7 +30,7 @@
     "class-validator": "0.12.2",
     "fastify-swagger": "3.3.0",
     "graphql": "14.7.0",
-    "graphql-tools": "5.0.0",
+    "graphql-tools": "6.0.18",
     "helmet": "4.1.0",
     "nocache": "2.1.0",
     "onoff": "6.0.0",
