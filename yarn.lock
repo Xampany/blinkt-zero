@@ -2529,10 +2529,10 @@
     "@types/koa" "*"
     graphql "^14.5.3"
 
-"@types/helmet@0.0.46":
-  version "0.0.46"
-  resolved "https://registry.yarnpkg.com/@types/helmet/-/helmet-0.0.46.tgz#8093232608a52d3209dd31da8526167fd93f4d27"
-  integrity sha512-gGp1XVSYFRbKT0nl8nLwst6JvwcB7wGAGVkvKja2LKz3tJuTcgmo2TklQ0kUY/t8sOM94IdvBcfgGAYbJsk3tw==
+"@types/helmet@0.0.48":
+  version "0.0.48"
+  resolved "https://registry.yarnpkg.com/@types/helmet/-/helmet-0.0.48.tgz#e754399d2f4672ba63962e8490efd3edd31d9799"
+  integrity sha512-C7MpnvSDrunS1q2Oy1VWCY7CDWHozqSnM8P4tFeRTuzwqni+PYOjEredwcqWG+kLpYcgLsgcY3orHB54gbx2Jw==
   dependencies:
     "@types/express" "*"
 
@@ -2586,10 +2586,10 @@
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.5.10.tgz#a1a41012012b5da9d4b205ba9eba58f6cce2ab7b"
   integrity sha512-3F8qpwBAiVc5+HPJeXJpbrl+XjawGmciN5LgiO7Gv1pl1RHtjoMNqZpqEksaPJW05ViKe8snYInRs6xB25Xdew==
 
-"@types/jasmine@3.5.12":
-  version "3.5.12"
-  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.5.12.tgz#5c378c1545cdc7cb339cff5578f854b6d1e0a17d"
-  integrity sha512-vJaQ58oceFao+NzpKNqLOWwHPsqA7YEhKv+mOXvYU4/qh+BfVWIxaBtL0Ck5iCS67yOkNwGkDCrzepnzIWF+7g==
+"@types/jasmine@3.5.14":
+  version "3.5.14"
+  resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-3.5.14.tgz#f41a14e8ffa939062a71cf9722e5ee7d4e1f94af"
+  integrity sha512-Fkgk536sHPqcOtd+Ow+WiUNuk0TSo/BntKkF8wSvcd6M2FvPjeXcUE6Oz/bwDZiUZEaXLslAgw00Q94Pnx6T4w==
 
 "@types/jasminewd2@2.0.8":
   version "2.0.8"
@@ -2710,10 +2710,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.12.54.tgz#a4b58d8df3a4677b6c08bfbc94b7ad7a7a5f82d1"
   integrity sha512-ge4xZ3vSBornVYlDnk7yZ0gK6ChHf/CHB7Gl1I0Jhah8DDnEQqBzgohYG4FX4p81TNirSETOiSyn+y1r9/IR6w==
 
-"@types/node@8.10.61":
-  version "8.10.61"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.61.tgz#d299136ce54bcaf1abaa4a487f9e4bedf6b0d393"
-  integrity sha512-l+zSbvT8TPRaCxL1l9cwHCb0tSqGAGcjPJFItGGYat5oCTiq1uQQKYg5m7AF1mgnEBzFXGLJ2LRmNjtreRX76Q==
+"@types/node@8.10.63":
+  version "8.10.63"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.63.tgz#f86775d576bc07a2992da244f41c23d3ba66d402"
+  integrity sha512-g+nSkeHFDd2WOQChfmy9SAXLywT47WZBrGS/NC5ym5PJ8c8RC6l4pbGaUW/X0+eZJnXw6/AVNEouXWhV4iz72Q==
 
 "@types/node@^10.1.0":
   version "10.17.21"
