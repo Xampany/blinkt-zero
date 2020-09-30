@@ -28,7 +28,7 @@
     "@nestjs/swagger": "4.6.1",
     "apollo-server-fastify": "2.18.1",
     "class-validator": "0.12.2",
-    "fastify-swagger": "3.3.0",
+    "fastify-swagger": "3.4.0",
     "graphql": "15.3.0",
     "graphql-tools": "5.0.0",
     "helmet": "4.1.1",
