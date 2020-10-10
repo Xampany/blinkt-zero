@@ -13416,10 +13416,10 @@ onetime@^5.1.0:
   dependencies:
     mimic-fn "^2.1.0"
 
-onoff@6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/onoff/-/onoff-6.0.0.tgz#989258b0881eb883109aa63175a522349a70b7d5"
-  integrity sha512-MLWs/s5vU0rfG+oTVXvGz7DIfAeynVEsZAZfbk8AL7gVVSaJerB2UxjkKRdUJIAMVFfdhgsZXZw+5eJAzdWspw==
+onoff@6.0.1:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/onoff/-/onoff-6.0.1.tgz#68ecaece4a4b4663fd59d72544dfec556d460ddd"
+  integrity sha512-lqnVyUiWLbb4T6sWTaOeCJn682EPyxaTyfJ5bP5LiTa0KMDlVPQR0ngVgzV3SkRkd0JnNxPvwTNj7QVvZTZsAw==
   dependencies:
     epoll "^4.0.0"
     lodash.debounce "^4.0.8"
