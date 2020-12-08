@@ -42,7 +42,7 @@
   "devDependencies": {
     "@nestjs/testing": "7.4.4",
     "@types/helmet": "0.0.48",
-    "@types/jest": "26.0.14",
+    "@types/jest": "26.0.17",
     "@types/node": "12.19.8",
     "@types/supertest": "2.0.10",
     "@types/tinycolor2": "1.4.2",
