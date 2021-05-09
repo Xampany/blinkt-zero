@@ -31,7 +31,7 @@
     "fastify-swagger": "3.5.0",
     "graphql": "15.4.0",
     "graphql-tools": "7.0.2",
-    "helmet": "4.1.1",
+    "helmet": "4.6.0",
     "nocache": "2.1.0",
     "onoff": "6.0.1",
     "reflect-metadata": "0.1.13",
